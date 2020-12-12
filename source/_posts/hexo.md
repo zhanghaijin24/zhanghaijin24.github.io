@@ -9,3 +9,15 @@ sudo npm install -g hexo-cli
 sudo npm install
 sudo npm install hexo-deployer-git
 ```
+
+### 修改，同步
+```
+git add .
+git commit -m "hexo"
+git push origin hexo
+```
+
+### 从github拉取数据
+```
+git pull
+```
