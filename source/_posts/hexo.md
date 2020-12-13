@@ -21,3 +21,8 @@ git push origin hexo
 ```
 git pull
 ```
+
+### selinux阻止nginx，导致出现403 Forbidden
+```
+chcon -R -t httpd_sys_rw_content_t zhanghaijin24.github.io
+```
