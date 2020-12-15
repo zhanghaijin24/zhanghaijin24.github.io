@@ -20,7 +20,7 @@ unzip owncloud-10.4.0.zip -d /var/www/html/
 
 chown -R apache:apache owncloud
 ```
-touch /etc/httpd/conf.d/owncloud.conf
+vim /etc/httpd/conf.d/owncloud.conf
 ```
 <VirtualHost 192.168.100.204:80>
 ServerAdmin webmaster@yourdomain.com
