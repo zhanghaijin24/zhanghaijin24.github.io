@@ -102,3 +102,7 @@ firewall-cmd --permanent --add-service=mysql
 firewall-cmd --permanent --add-service=http  
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 ```
+
+
+#### ubuntu 18.04 owncloud
+
