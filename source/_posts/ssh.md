@@ -1,6 +1,7 @@
 ---
-title: centos7 修改默认ssh端口
+title: 修改默认ssh端口
 ---
+#### centos7 修改默认ssh端口
 
 ```
 git config --global user.name "zhanghaijin24"
@@ -25,4 +26,22 @@ sudo sudo firewall-cmd --reload
 sudo systemctl restart sshd.service
 ```
 
-
+#### ubuntu 18.04 修改默认ssh端口
+#vim /etc/ssh/sshd_config
+```
+Port 22
+Port 10086
+```
+重启ssh
+```
+systemctl restart ssh
+```
+### ufw配置
+```
+ufw status verbose
+ufw enable
+ufw allow 22/tcp
+ufw allow 10086/tcp
+ufw status numbered
+ufw delete 2
+```

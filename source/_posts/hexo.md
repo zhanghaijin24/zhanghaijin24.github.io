@@ -2,6 +2,18 @@
 title: hexo
 ---
 
+### 安装nodejs
+```
+tar -vxf node-v12.16.1-linux-x64.tar.xz -C /usr/local
+cd /usr/local
+mv node-v12.16.1-linux-x64/ node
+cd /usr/bin
+ln -s /usr/local/node/bin/node node
+ln -s /usr/local/node/bin/npm npm
+node -v
+npm -v
+```
+
 ### 阿里云配置hexo，克隆从github
 ```
 git clone -b hexo https://github.com/zhanghaijin24/zhanghaijin24.github.io.git
