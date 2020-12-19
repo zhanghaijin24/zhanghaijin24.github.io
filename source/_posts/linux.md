@@ -21,5 +21,9 @@ plugins=(git
 
 ### centos7 安装neovim
 ```
-
+tar -vxf nvim-linux64.tar.gz -C /usr/local
+cd /usr/local
+mv nvim-linux64 nvim
+cd /usr/bin
+ln -s /usr/local/nvim/bin/nvim nvim
 ```
