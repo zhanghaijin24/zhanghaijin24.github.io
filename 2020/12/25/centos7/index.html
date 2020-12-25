@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>centos7 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="selinux配置 setenforce 0 getenforce  centos7 修改默认ssh端口&#x2F;配置端口为10086  sudo vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config  sudo yum -y install policycoreutils-python  sudo semanage port -a -t ssh_port_t -p tcp 10086  systemctl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7">
+<meta property="og:url" content="http://example.com/2020/12/25/centos7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="selinux配置 setenforce 0 getenforce  centos7 修改默认ssh端口&#x2F;配置端口为10086  sudo vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config  sudo yum -y install policycoreutils-python  sudo semanage port -a -t ssh_port_t -p tcp 10086  systemctl">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-10.46.32.png">
+<meta property="og:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.03.28.png">
+<meta property="og:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.22.56.png">
+<meta property="og:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.31.46.png">
+<meta property="article:published_time" content="2020-12-25T15:05:30.506Z">
+<meta property="article:modified_time" content="2020-12-25T15:05:30.506Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-10.46.32.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-centos7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/12/25/centos7/" class="article-date">
+  <time class="dt-published" datetime="2020-12-25T15:05:30.506Z" itemprop="datePublished">2020-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      centos7
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="selinux配置"><a href="#selinux配置" class="headerlink" title="selinux配置"></a>selinux配置</h2><ul>
+<li>setenforce 0</li>
+<li>getenforce</li>
+</ul>
+<h1 id="centos7-修改默认ssh端口-配置端口为10086"><a href="#centos7-修改默认ssh端口-配置端口为10086" class="headerlink" title="centos7 修改默认ssh端口/配置端口为10086"></a>centos7 修改默认ssh端口/配置端口为10086</h1><hr>
+<ul>
+<li><p>sudo vim /etc/ssh/sshd_config<br><img src="http://101.201.197.193/images/2020/12/24/-2020-12-24-10.46.32.png" alt="centos7/sshd/port"></p>
+</li>
+<li><p>sudo yum -y install policycoreutils-python</p>
+</li>
+<li><p>sudo semanage port -a -t ssh_port_t -p tcp 10086</p>
+</li>
+<li><p>systemctl enable firewalld</p>
+</li>
+<li><p>systemctl start firewalld</p>
+</li>
+<li><p>sudo firewall-cmd –permanent –zone=public –add-port=10086/tcp</p>
+</li>
+<li><p>sudo systemctl status firewalld</p>
+</li>
+<li><p>sudo sudo firewall-cmd –reload</p>
+</li>
+<li><p>sudo systemctl restart sshd.service</p>
+</li>
+</ul>
+<h1 id="centos7-安装vsftpd"><a href="#centos7-安装vsftpd" class="headerlink" title="centos7 安装vsftpd"></a>centos7 安装vsftpd</h1><hr>
+<ul>
+<li>yum install -y vsftpd</li>
+</ul>
+<p><em>开机启动vsftpd</em></p>
+<ul>
+<li>systemctl enable vsftpd</li>
+</ul>
+<p><em>配置selinux</em></p>
+<h1 id="vim-etc-selinux-config"><a href="#vim-etc-selinux-config" class="headerlink" title="vim /etc/selinux/config"></a>vim /etc/selinux/config</h1><p><img src="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.03.28.png" alt="centos7/selinux"></p>
+<p><em>查看ftp配置</em></p>
+<ul>
+<li>getsebool -a | grep ftp<br><a target="_blank" rel="noopener" href="http://101.201.197.193/image/262"><img src="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.22.56.png" alt="ftp"></a></li>
+</ul>
+<p><em>开启tftp_home_dir和ftpd_full_access 才能够访问ftp目录和传输文件</em></p>
+<ul>
+<li>setsebool -P tftp_home_dir 1</li>
+<li>setsebool -P ftpd_full_access 1</li>
+</ul>
+<p><em>查看ftp是否启动，以及ftp开放端口</em></p>
+<ul>
+<li>netstat -antup | grep ftp</li>
+</ul>
+<p><em>firewalld start/delete vsftpd port:21</em></p>
+<ul>
+<li>firewall-cmd –list-ports</li>
+<li>firewall-cmd –reload</li>
+<li>firewall-cmd –zone=public –add-port=21/tcp –permanent</li>
+<li>firewall-cmd –zone=public –add-port=40000-45000/tcp –permanent</li>
+<li>firewall-cmd –zone=public –remove-port=21/tcp –permanent</li>
+</ul>
+<h1 id="centos7-修改nginx默认端口80为81"><a href="#centos7-修改nginx默认端口80为81" class="headerlink" title="centos7 修改nginx默认端口80为81"></a>centos7 修改nginx默认端口80为81</h1><hr>
+<ul>
+<li>vim /etc/nginx/nginx.conf<br><a target="_blank" rel="noopener" href="http://101.201.197.193/image/tLM"><img src="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.31.46.png" alt="centos7/nginx port"></a></li>
+</ul>
+<p><strong>修改listen 端口为81</strong></p>
+<ul>
+<li>systemctl restart nginx</li>
+<li>firewall-cmd –zone=public –add-port=81/tcp –permanent</li>
+<li>firewall-cmd –reload</li>
+</ul>
+<p><em>阿里云安全组规则开放81端口</em></p>
+<h1 id="阿里云配置hexo，克隆从github"><a href="#阿里云配置hexo，克隆从github" class="headerlink" title="阿里云配置hexo，克隆从github"></a>阿里云配置hexo，克隆从github</h1><hr>
+<ul>
+<li>git clone -b hexo <a target="_blank" rel="noopener" href="https://github.com/zhanghaijin24/zhanghaijin24.github.io.git">https://github.com/zhanghaijin24/zhanghaijin24.github.io.git</a></li>
+<li>sudo npm install -g hexo-cli</li>
+<li>sudo npm install</li>
+<li>sudo npm install hexo-deployer-git</li>
+</ul>
+<h1 id="centos7-selinux阻止nginx，导致出现403-Forbidden"><a href="#centos7-selinux阻止nginx，导致出现403-Forbidden" class="headerlink" title="centos7 selinux阻止nginx，导致出现403 Forbidden"></a>centos7 selinux阻止nginx，导致出现403 Forbidden</h1><hr>
+<ul>
+<li>chcon -R -t httpd_sys_rw_content_t zhanghaijin24.github.io</li>
+</ul>
+<h1 id="centos7-owncloud"><a href="#centos7-owncloud" class="headerlink" title="centos7 owncloud"></a>centos7 owncloud</h1><hr>
+<p><strong>安装apache2 mariadb owncloud</strong></p>
+<ul>
+<li><p>yum install -y httpd</p>
+</li>
+<li><p>yum install -y mariadb mariadb-server</p>
+</li>
+<li><p>yum install -y unzip</p>
+</li>
+<li><p>systemctl start httpd</p>
+</li>
+<li><p>systemctl enable httpd</p>
+</li>
+<li><p>systemctl start mariadb</p>
+</li>
+<li><p>systemctl enable mariadb</p>
+</li>
+<li><p>unzip owncloud-10.4.0.zip -d /var/www/html/</p>
+</li>
+<li><p>chown -R apache:apache owncloud</p>
+</li>
+</ul>
+<p><em>#vim /etc/httpd/conf.d/owncloud.conf</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost 192.168.100.204:80&gt;</span><br><span class="line">ServerAdmin webmaster@yourdomain.com</span><br><span class="line">DocumentRoot &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;owncloud&#x2F;&quot;</span><br><span class="line">ServerName yourdomain.com</span><br><span class="line">ServerAlias www.yourdomain.com</span><br><span class="line">ErrorLog &quot;&#x2F;var&#x2F;log&#x2F;httpd&#x2F;yourdomain.com-error_log&quot;</span><br><span class="line">CustomLog &quot;&#x2F;var&#x2F;log&#x2F;httpd&#x2F;yourdomain.com-access_log&quot; combined</span><br><span class="line">&lt;Directory &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;owncloud&#x2F;&quot;&gt;</span><br><span class="line">DirectoryIndex index.html index.php</span><br><span class="line">Options FollowSymLinks</span><br><span class="line">AllowOverride All</span><br><span class="line">Require all granted</span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>mkdir -p /owncloud/data</li>
+<li>chown -R apache:apache /owncloud/data</li>
+<li>systemctl restart php-fpm</li>
+<li>systemctl restart httpd</li>
+<li>systemctl restart httpd</li>
+<li>systemctl enable httpd</li>
+</ul>
+<h1 id="彻底卸载php7-2"><a href="#彻底卸载php7-2" class="headerlink" title="彻底卸载php7.2"></a>彻底卸载php7.2</h1><hr>
+<ul>
+<li>rpm -qa | grep php</li>
+<li>rpm -e </li>
+<li>rpm -e –nodeps </li>
+</ul>
+<h1 id="安装php7-2"><a href="#安装php7-2" class="headerlink" title="安装php7.2"></a>安装php7.2</h1><hr>
+<ul>
+<li><p>rpm -Uvh <a target="_blank" rel="noopener" href="https://mirror.webtatic.com/yum/el7/epel-release.rpm">https://mirror.webtatic.com/yum/el7/epel-release.rpm</a></p>
+</li>
+<li><p>rpm -Uvh <a target="_blank" rel="noopener" href="https://mirror.webtatic.com/yum/el7/webtatic-release.rpm">https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</a></p>
+</li>
+<li><p>yum clean all</p>
+</li>
+<li><p>yum -y update</p>
+</li>
+<li><p>yum install php72w php72w-mysql php72w-pecl-zip php72w-xml php72w-mbstring php72w-gd php72w-mcrypt php72w-pear php72w-pspell php72w-pdo php72w-xml php72w-intl php72w-zip php72w-zlib php72w-fpm php72w-cli php72w-common</p>
+</li>
+<li><p>php -i | grep -i php.ini</p>
+</li>
+<li><p>sed -i “s/post_max_size = 8M/post_max_size = 256M/“ /etc/php.ini</p>
+</li>
+<li><p>sed -i “s/upload_max_filesize = 2M/upload_max_filesize = 256M/“ /etc/php.ini</p>
+</li>
+<li><p>systemctl start php-fpm</p>
+</li>
+<li><p>php -v</p>
+</li>
+</ul>
+<p><strong><em>#vim /var/www/html/info.php</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p><strong><em>#find / -name php.ini</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;php.ini</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>#vim /etc/httpd/conf/httpd.conf</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHPIniDir &#x2F;etc&#x2F;php.ini</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><hr>
+<ul>
+<li>mysql_secure_installation</li>
+</ul>
+<p><strong>创建密码123456</strong></p>
+<ul>
+<li>mysql -uroot -p123456</li>
+<li>CREATE DATABASE owncloud;</li>
+<li>GRANT ALL PRIVILEGES ON owncloud.* TO ‘owncloud’@’localhost’ IDENTIFIED BY ‘123456’;</li>
+<li>FLUSH PRIVILEGES;</li>
+<li>exit</li>
+</ul>
+<ul>
+<li>firewall-cmd –permanent –add-service=mysql</li>
+<li>firewall-cmd –permanent –add-service=http  </li>
+<li>firewall-cmd –zone=public –add-port=3306/tcp –permanent</li>
+</ul>
+<h1 id="centos7-搭建Chevereto图床"><a href="#centos7-搭建Chevereto图床" class="headerlink" title="centos7 搭建Chevereto图床"></a>centos7 搭建Chevereto图床</h1><p><em>压缩Chevereto-Free文件</em></p>
+<ul>
+<li>tar -zcvf /Users/zhanghaijin/Chevereto-Free.tar.gz Chevereto-Free</li>
+</ul>
+<p><em>解压Chevereto-Free.tar.gz</em></p>
+<ul>
+<li>tar -vxf Chevereto-Free.tar.gz -C /var/www/html</li>
+<li>cd /var/www/html</li>
+<li>mv Chevereto-Free/ chevereto</li>
+</ul>
+<p><em>#vim /var/www/html/chevereto/app/settings.php</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">$config[&#39;db_name&#39;] &#x3D; &#39;cheveretodb&#39;; </span><br><span class="line">$config[&#39;db_user&#39;] &#x3D; &#39;chevereto&#39;; </span><br><span class="line">$config[&#39;db_pass&#39;] &#x3D; &#39;password&#39;; </span><br><span class="line">$config[&#39;admin_password&#39;] &#x3D; &#39;password&#39;;</span><br><span class="line">?php&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>chown -R apache:apache chevereto/</li>
+<li>chmod -R 777 /var/www/html/chevereto</li>
+</ul>
+<p><em>#vim /etc/httpd/conf.d/owncloud.conf</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost 192.168.100.204:80&gt;</span><br><span class="line">ServerAdmin webmaster@yourdomain.com</span><br><span class="line">DocumentRoot &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;owncloud&#x2F;&quot;</span><br><span class="line">ServerName yourdomain.com</span><br><span class="line">ServerAlias www.yourdomain.com</span><br><span class="line">ErrorLog &quot;&#x2F;var&#x2F;log&#x2F;httpd&#x2F;yourdomain.com-error_log&quot;</span><br><span class="line">CustomLog &quot;&#x2F;var&#x2F;log&#x2F;httpd&#x2F;yourdomain.com-access_log&quot; combined</span><br><span class="line">&lt;Directory &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;owncloud&#x2F;&quot;&gt;</span><br><span class="line">DirectoryIndex index.html index.php</span><br><span class="line">Options FollowSymLinks</span><br><span class="line">AllowOverride All</span><br><span class="line">Require all granted</span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>systemctl restart php-fpm</li>
+<li>systemctl restart httpd</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/25/centos7/" data-id="ckj4eq5z10000z1wi5v1vfamf" data-title="centos7" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/25/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/25/centos7/">centos7</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/25/git/">git</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/25/ubuntu18.04/">ubuntu 18.04</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/20/linux/">linux美化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/13/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

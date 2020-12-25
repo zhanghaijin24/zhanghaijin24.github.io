@@ -73,8 +73,8 @@
   
     <article id="post-centos7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/12/19/centos7/" class="article-date">
-  <time class="dt-published" datetime="2020-12-19T04:26:43.212Z" itemprop="datePublished">2020-12-19</time>
+    <a href="/2020/12/25/centos7/" class="article-date">
+  <time class="dt-published" datetime="2020-12-25T15:05:30.506Z" itemprop="datePublished">2020-12-25</time>
 </a>
     
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/19/centos7/">centos7</a>
+      <a class="p-name article-title" href="/2020/12/25/centos7/">centos7</a>
     </h1>
   
 
@@ -93,355 +93,200 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="selinux配置"><a href="#selinux配置" class="headerlink" title="selinux配置"></a>selinux配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0</span><br><span class="line">getenforce</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/19/centos7/" data-id="ckiv7adlq000071wia8vi5036" data-title="centos7" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/19/hexo/" class="article-date">
-  <time class="dt-published" datetime="2020-12-19T04:26:43.212Z" itemprop="datePublished">2020-12-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/19/hexo/">hexo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -vxf node-v12.16.1-linux-x64.tar.xz -C &#x2F;usr&#x2F;local</span><br><span class="line">cd &#x2F;usr&#x2F;local</span><br><span class="line">mv node-v12.16.1-linux-x64&#x2F; node</span><br><span class="line">cd &#x2F;usr&#x2F;bin</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;node node</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;npm npm</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-<h3 id="阿里云配置hexo，克隆从github"><a href="#阿里云配置hexo，克隆从github" class="headerlink" title="阿里云配置hexo，克隆从github"></a>阿里云配置hexo，克隆从github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone -b hexo https:&#x2F;&#x2F;github.com&#x2F;zhanghaijin24&#x2F;zhanghaijin24.github.io.git</span><br><span class="line">sudo npm install -g hexo-cli</span><br><span class="line">sudo npm install</span><br><span class="line">sudo npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改，同步"><a href="#修改，同步" class="headerlink" title="修改，同步"></a>修改，同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;hexo&quot;</span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
-
-<h3 id="从github拉取数据"><a href="#从github拉取数据" class="headerlink" title="从github拉取数据"></a>从github拉取数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
-
-<h3 id="selinux阻止nginx，导致出现403-Forbidden"><a href="#selinux阻止nginx，导致出现403-Forbidden" class="headerlink" title="selinux阻止nginx，导致出现403 Forbidden"></a>selinux阻止nginx，导致出现403 Forbidden</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chcon -R -t httpd_sys_rw_content_t zhanghaijin24.github.io</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/19/hexo/" data-id="ckiv7adm1000471wihtiy7mvh" data-title="hexo" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/19/linux/" class="article-date">
-  <time class="dt-published" datetime="2020-12-19T04:26:43.212Z" itemprop="datePublished">2020-12-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/19/linux/">linux美化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="linux安装zsh、ohmyzsh"><a href="#linux安装zsh、ohmyzsh" class="headerlink" title="linux安装zsh、ohmyzsh"></a>linux安装zsh、ohmyzsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt install -y zsh</span><br><span class="line">chsh -s &#x2F;bin&#x2F;zsh</span><br><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;robbyrussell&#x2F;oh-my-zsh.git ~&#x2F;.oh-my-zsh</span><br><span class="line">cp ~&#x2F;.oh-my-zsh&#x2F;templates&#x2F;zshrc.zsh-template ~&#x2F;.zshrc</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $ZSH_CUSTOM&#x2F;plugins&#x2F;zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-<p>#vim .zshrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plugins&#x3D;(git</span><br><span class="line">        zsh-autosuggestions</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-<p>#source .zshrc</p>
-<h3 id="centos7-安装neovim"><a href="#centos7-安装neovim" class="headerlink" title="centos7 安装neovim"></a>centos7 安装neovim</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -vxf nvim-linux64.tar.gz -C &#x2F;usr&#x2F;local</span><br><span class="line">cd &#x2F;usr&#x2F;local</span><br><span class="line">mv nvim-linux64 nvim</span><br><span class="line">cd &#x2F;usr&#x2F;bin</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;nvim&#x2F;bin&#x2F;nvim nvim</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/19/linux/" data-id="ckiv7adm2000571wi39l5bka5" data-title="linux美化" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ssh" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/19/ssh/" class="article-date">
-  <time class="dt-published" datetime="2020-12-19T04:26:43.212Z" itemprop="datePublished">2020-12-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/19/ssh/">修改默认ssh端口</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="centos7-修改默认ssh端口"><a href="#centos7-修改默认ssh端口" class="headerlink" title="centos7 修改默认ssh端口"></a>centos7 修改默认ssh端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;zhanghaijin24&quot;</span><br><span class="line">git config --global user.email &quot;1171892570@qq.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;1171892570@qq.com&quot;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br><span class="line">sudo yum -y install policycoreutils-python</span><br><span class="line">sudo semanage port -a -t ssh_port_t -p tcp 10086</span><br><span class="line"></span><br><span class="line">systemctl enable firewalld</span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line">sudo firewall-cmd --permanent --zone&#x3D;public --add-port&#x3D;10086&#x2F;tcp</span><br><span class="line"></span><br><span class="line">sudo systemctl status firewalld</span><br><span class="line"></span><br><span class="line">sudo sudo firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">sudo systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
-
-<h4 id="ubuntu-18-04-修改默认ssh端口"><a href="#ubuntu-18-04-修改默认ssh端口" class="headerlink" title="ubuntu 18.04 修改默认ssh端口"></a>ubuntu 18.04 修改默认ssh端口</h4><p>#vim /etc/ssh/sshd_config</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Port 22</span><br><span class="line">Port 10086</span><br></pre></td></tr></table></figure>
-<p>重启ssh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart ssh</span><br></pre></td></tr></table></figure>
-<h3 id="ufw配置"><a href="#ufw配置" class="headerlink" title="ufw配置"></a>ufw配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ufw status verbose</span><br><span class="line">ufw enable</span><br><span class="line">ufw allow 22&#x2F;tcp</span><br><span class="line">ufw allow 10086&#x2F;tcp</span><br><span class="line">ufw status numbered</span><br><span class="line">ufw delete 2</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/19/ssh/" data-id="ckiv7adm6000871wi2o8h92n6" data-title="修改默认ssh端口" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-vsftpd" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/19/vsftpd/" class="article-date">
-  <time class="dt-published" datetime="2020-12-19T04:26:43.212Z" itemprop="datePublished">2020-12-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/19/vsftpd/">vsftpd</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="centos7-安装vsftpd"><a href="#centos7-安装vsftpd" class="headerlink" title="centos7 安装vsftpd"></a>centos7 安装vsftpd</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vsftpd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="开机启动vsdtpd"><a href="#开机启动vsdtpd" class="headerlink" title="开机启动vsdtpd"></a>开机启动vsdtpd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable vsftpd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="配置selinux"><a href="#配置selinux" class="headerlink" title="配置selinux"></a>配置selinux</h3><p>vim /etc/selinux/config</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">配置SELINUX&#x3D;enforcing</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>有用命令<br>getsebool -a | grep ftp<br>开启tftp_home_dir和ftpd_full_access 才能够访问ftp目录和传输文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setsebool -P tftp_home_dir 1</span><br><span class="line">setsebool -P ftpd_full_access 1</span><br></pre></td></tr></table></figure>
-
-<p>查看ftp是否启动，以及ftp开放端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -antup | grep ftp</span><br></pre></td></tr></table></figure>
-
-<h3 id="firewalld-start-delete-vsftpd-port-21"><a href="#firewalld-start-delete-vsftpd-port-21" class="headerlink" title="firewalld start/delete vsftpd port:21"></a>firewalld start/delete vsftpd port:21</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-ports</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;21&#x2F;tcp --permanent</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;40000-45000&#x2F;tcp --permanent</span><br><span class="line">firewall-cmd --zone&#x3D;public --remove-port&#x3D;21&#x2F;tcp --permanent</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h4 id="ubuntu-18-04-安装vsftpd"><a href="#ubuntu-18-04-安装vsftpd" class="headerlink" title="ubuntu 18.04 安装vsftpd"></a>ubuntu 18.04 安装vsftpd</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install vsftpd</span><br><span class="line">systemctl enable vsftpd</span><br><span class="line">systemctl start vsftpd</span><br><span class="line">netstat -antup | grep vsftpd</span><br><span class="line"></span><br><span class="line">useradd david -m</span><br><span class="line">passwd david</span><br><span class="line"></span><br><span class="line">mkdir &#x2F;ftp</span><br><span class="line">chown -R david:david &#x2F;ftp</span><br></pre></td></tr></table></figure>
-<p>#vim /etc/vsftpd.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable&#x3D;NO</span><br><span class="line">local_enable&#x3D;YES</span><br><span class="line">write_enable&#x3D;YES</span><br><span class="line">chroot_local_user&#x3D;YES</span><br><span class="line">chroot_list_enable&#x3D;YES</span><br><span class="line">chroot_list_file&#x3D;&#x2F;etc&#x2F;vsftpd&#x2F;chroot_list</span><br><span class="line">listen&#x3D;YES</span><br><span class="line">#listen_ipv6&#x3D;YES</span><br><span class="line"></span><br><span class="line">local_root&#x3D;&#x2F;ftp</span><br><span class="line">allow_writeable_chroot&#x3D;YES</span><br><span class="line">pasv_enable&#x3D;YES</span><br><span class="line">pasv_address&#x3D;192.144.237.214 #请修改为您的 Linux 云服务器公网 IP</span><br><span class="line">pasv_min_port&#x3D;40000</span><br><span class="line">pasv_max_port&#x3D;45000</span><br></pre></td></tr></table></figure>
-
-<p>#vim /etc/vsftpd.chroot_list</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">david</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart vsftpd</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/19/vsftpd/" data-id="ckiv7adm8000a71wi44f5c7wl" data-title="vsftpd" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-owncloud" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/16/owncloud/" class="article-date">
-  <time class="dt-published" datetime="2020-12-16T12:22:34.282Z" itemprop="datePublished">2020-12-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/16/owncloud/">owncloud</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="centos7-owncloud"><a href="#centos7-owncloud" class="headerlink" title="centos7 owncloud"></a>centos7 owncloud</h4><h3 id="安装apache2-mariadb-owncloud"><a href="#安装apache2-mariadb-owncloud" class="headerlink" title="安装apache2 mariadb owncloud"></a>安装apache2 mariadb owncloud</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">yum install -y httpd</span><br><span class="line">yum install -y mariadb mariadb-server</span><br><span class="line">yum install -y unzip</span><br><span class="line"></span><br><span class="line">systemctl start httpd</span><br><span class="line">systemctl enable httpd</span><br><span class="line"></span><br><span class="line">systemctl start mariadb</span><br><span class="line">systemctl enable mariadb</span><br><span class="line"></span><br><span class="line">unzip owncloud-10.4.0.zip -d &#x2F;var&#x2F;www&#x2F;html&#x2F;</span><br><span class="line"></span><br><span class="line">chown -R apache:apache owncloud</span><br></pre></td></tr></table></figure>
-<p>vim /etc/httpd/conf.d/owncloud.conf</p>
+        <h2 id="selinux配置"><a href="#selinux配置" class="headerlink" title="selinux配置"></a>selinux配置</h2><ul>
+<li>setenforce 0</li>
+<li>getenforce</li>
+</ul>
+<h1 id="centos7-修改默认ssh端口-配置端口为10086"><a href="#centos7-修改默认ssh端口-配置端口为10086" class="headerlink" title="centos7 修改默认ssh端口/配置端口为10086"></a>centos7 修改默认ssh端口/配置端口为10086</h1><hr>
+<ul>
+<li><p>sudo vim /etc/ssh/sshd_config<br><img src="http://101.201.197.193/images/2020/12/24/-2020-12-24-10.46.32.png" alt="centos7/sshd/port"></p>
+</li>
+<li><p>sudo yum -y install policycoreutils-python</p>
+</li>
+<li><p>sudo semanage port -a -t ssh_port_t -p tcp 10086</p>
+</li>
+<li><p>systemctl enable firewalld</p>
+</li>
+<li><p>systemctl start firewalld</p>
+</li>
+<li><p>sudo firewall-cmd –permanent –zone=public –add-port=10086/tcp</p>
+</li>
+<li><p>sudo systemctl status firewalld</p>
+</li>
+<li><p>sudo sudo firewall-cmd –reload</p>
+</li>
+<li><p>sudo systemctl restart sshd.service</p>
+</li>
+</ul>
+<h1 id="centos7-安装vsftpd"><a href="#centos7-安装vsftpd" class="headerlink" title="centos7 安装vsftpd"></a>centos7 安装vsftpd</h1><hr>
+<ul>
+<li>yum install -y vsftpd</li>
+</ul>
+<p><em>开机启动vsftpd</em></p>
+<ul>
+<li>systemctl enable vsftpd</li>
+</ul>
+<p><em>配置selinux</em></p>
+<h1 id="vim-etc-selinux-config"><a href="#vim-etc-selinux-config" class="headerlink" title="vim /etc/selinux/config"></a>vim /etc/selinux/config</h1><p><img src="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.03.28.png" alt="centos7/selinux"></p>
+<p><em>查看ftp配置</em></p>
+<ul>
+<li>getsebool -a | grep ftp<br><a target="_blank" rel="noopener" href="http://101.201.197.193/image/262"><img src="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.22.56.png" alt="ftp"></a></li>
+</ul>
+<p><em>开启tftp_home_dir和ftpd_full_access 才能够访问ftp目录和传输文件</em></p>
+<ul>
+<li>setsebool -P tftp_home_dir 1</li>
+<li>setsebool -P ftpd_full_access 1</li>
+</ul>
+<p><em>查看ftp是否启动，以及ftp开放端口</em></p>
+<ul>
+<li>netstat -antup | grep ftp</li>
+</ul>
+<p><em>firewalld start/delete vsftpd port:21</em></p>
+<ul>
+<li>firewall-cmd –list-ports</li>
+<li>firewall-cmd –reload</li>
+<li>firewall-cmd –zone=public –add-port=21/tcp –permanent</li>
+<li>firewall-cmd –zone=public –add-port=40000-45000/tcp –permanent</li>
+<li>firewall-cmd –zone=public –remove-port=21/tcp –permanent</li>
+</ul>
+<h1 id="centos7-修改nginx默认端口80为81"><a href="#centos7-修改nginx默认端口80为81" class="headerlink" title="centos7 修改nginx默认端口80为81"></a>centos7 修改nginx默认端口80为81</h1><hr>
+<ul>
+<li>vim /etc/nginx/nginx.conf<br><a target="_blank" rel="noopener" href="http://101.201.197.193/image/tLM"><img src="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.31.46.png" alt="centos7/nginx port"></a></li>
+</ul>
+<p><strong>修改listen 端口为81</strong></p>
+<ul>
+<li>systemctl restart nginx</li>
+<li>firewall-cmd –zone=public –add-port=81/tcp –permanent</li>
+<li>firewall-cmd –reload</li>
+</ul>
+<p><em>阿里云安全组规则开放81端口</em></p>
+<h1 id="阿里云配置hexo，克隆从github"><a href="#阿里云配置hexo，克隆从github" class="headerlink" title="阿里云配置hexo，克隆从github"></a>阿里云配置hexo，克隆从github</h1><hr>
+<ul>
+<li>git clone -b hexo <a target="_blank" rel="noopener" href="https://github.com/zhanghaijin24/zhanghaijin24.github.io.git">https://github.com/zhanghaijin24/zhanghaijin24.github.io.git</a></li>
+<li>sudo npm install -g hexo-cli</li>
+<li>sudo npm install</li>
+<li>sudo npm install hexo-deployer-git</li>
+</ul>
+<h1 id="centos7-selinux阻止nginx，导致出现403-Forbidden"><a href="#centos7-selinux阻止nginx，导致出现403-Forbidden" class="headerlink" title="centos7 selinux阻止nginx，导致出现403 Forbidden"></a>centos7 selinux阻止nginx，导致出现403 Forbidden</h1><hr>
+<ul>
+<li>chcon -R -t httpd_sys_rw_content_t zhanghaijin24.github.io</li>
+</ul>
+<h1 id="centos7-owncloud"><a href="#centos7-owncloud" class="headerlink" title="centos7 owncloud"></a>centos7 owncloud</h1><hr>
+<p><strong>安装apache2 mariadb owncloud</strong></p>
+<ul>
+<li><p>yum install -y httpd</p>
+</li>
+<li><p>yum install -y mariadb mariadb-server</p>
+</li>
+<li><p>yum install -y unzip</p>
+</li>
+<li><p>systemctl start httpd</p>
+</li>
+<li><p>systemctl enable httpd</p>
+</li>
+<li><p>systemctl start mariadb</p>
+</li>
+<li><p>systemctl enable mariadb</p>
+</li>
+<li><p>unzip owncloud-10.4.0.zip -d /var/www/html/</p>
+</li>
+<li><p>chown -R apache:apache owncloud</p>
+</li>
+</ul>
+<p><em>#vim /etc/httpd/conf.d/owncloud.conf</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost 192.168.100.204:80&gt;</span><br><span class="line">ServerAdmin webmaster@yourdomain.com</span><br><span class="line">DocumentRoot &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;owncloud&#x2F;&quot;</span><br><span class="line">ServerName yourdomain.com</span><br><span class="line">ServerAlias www.yourdomain.com</span><br><span class="line">ErrorLog &quot;&#x2F;var&#x2F;log&#x2F;httpd&#x2F;yourdomain.com-error_log&quot;</span><br><span class="line">CustomLog &quot;&#x2F;var&#x2F;log&#x2F;httpd&#x2F;yourdomain.com-access_log&quot; combined</span><br><span class="line">&lt;Directory &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;owncloud&#x2F;&quot;&gt;</span><br><span class="line">DirectoryIndex index.html index.php</span><br><span class="line">Options FollowSymLinks</span><br><span class="line">AllowOverride All</span><br><span class="line">Require all granted</span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;owncloud&#x2F;data</span><br><span class="line">chown -R apache:apache &#x2F;owncloud&#x2F;data</span><br><span class="line">systemctl restart php-fpm</span><br><span class="line">systemctl restart httpd</span><br><span class="line">systemctl restart httpd</span><br><span class="line">systemctl enable httpd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="彻底卸载php7-2"><a href="#彻底卸载php7-2" class="headerlink" title="彻底卸载php7.2"></a>彻底卸载php7.2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep php</span><br><span class="line">rpm -e </span><br><span class="line">rpm -e --nodeps </span><br></pre></td></tr></table></figure>
-<h3 id="安装php7-2"><a href="#安装php7-2" class="headerlink" title="安装php7.2"></a>安装php7.2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https:&#x2F;&#x2F;mirror.webtatic.com&#x2F;yum&#x2F;el7&#x2F;epel-release.rpm</span><br><span class="line">rpm -Uvh https:&#x2F;&#x2F;mirror.webtatic.com&#x2F;yum&#x2F;el7&#x2F;webtatic-release.rpm</span><br><span class="line">yum clean all</span><br><span class="line">yum -y update</span><br><span class="line">yum install php72w php72w-mysql php72w-pecl-zip php72w-xml php72w-mbstring php72w-gd php72w-mcrypt php72w-pear php72w-pspell php72w-pdo php72w-xml php72w-intl php72w-zip php72w-zlib php72w-fpm php72w-cli php72w-common</span><br><span class="line"></span><br><span class="line">php -i | grep -i php.ini</span><br><span class="line">sed -i &quot;s&#x2F;post_max_size &#x3D; 8M&#x2F;post_max_size &#x3D; 256M&#x2F;&quot; &#x2F;etc&#x2F;php.ini</span><br><span class="line">sed -i &quot;s&#x2F;upload_max_filesize &#x3D; 2M&#x2F;upload_max_filesize &#x3D; 256M&#x2F;&quot; &#x2F;etc&#x2F;php.ini</span><br><span class="line"></span><br><span class="line">systemctl start php-fpm</span><br><span class="line"></span><br><span class="line">php -v</span><br></pre></td></tr></table></figure>
-<p>#vim /var/www/html/info.php</p>
+<ul>
+<li>mkdir -p /owncloud/data</li>
+<li>chown -R apache:apache /owncloud/data</li>
+<li>systemctl restart php-fpm</li>
+<li>systemctl restart httpd</li>
+<li>systemctl restart httpd</li>
+<li>systemctl enable httpd</li>
+</ul>
+<h1 id="彻底卸载php7-2"><a href="#彻底卸载php7-2" class="headerlink" title="彻底卸载php7.2"></a>彻底卸载php7.2</h1><hr>
+<ul>
+<li>rpm -qa | grep php</li>
+<li>rpm -e </li>
+<li>rpm -e –nodeps </li>
+</ul>
+<h1 id="安装php7-2"><a href="#安装php7-2" class="headerlink" title="安装php7.2"></a>安装php7.2</h1><hr>
+<ul>
+<li><p>rpm -Uvh <a target="_blank" rel="noopener" href="https://mirror.webtatic.com/yum/el7/epel-release.rpm">https://mirror.webtatic.com/yum/el7/epel-release.rpm</a></p>
+</li>
+<li><p>rpm -Uvh <a target="_blank" rel="noopener" href="https://mirror.webtatic.com/yum/el7/webtatic-release.rpm">https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</a></p>
+</li>
+<li><p>yum clean all</p>
+</li>
+<li><p>yum -y update</p>
+</li>
+<li><p>yum install php72w php72w-mysql php72w-pecl-zip php72w-xml php72w-mbstring php72w-gd php72w-mcrypt php72w-pear php72w-pspell php72w-pdo php72w-xml php72w-intl php72w-zip php72w-zlib php72w-fpm php72w-cli php72w-common</p>
+</li>
+<li><p>php -i | grep -i php.ini</p>
+</li>
+<li><p>sed -i “s/post_max_size = 8M/post_max_size = 256M/“ /etc/php.ini</p>
+</li>
+<li><p>sed -i “s/upload_max_filesize = 2M/upload_max_filesize = 256M/“ /etc/php.ini</p>
+</li>
+<li><p>systemctl start php-fpm</p>
+</li>
+<li><p>php -v</p>
+</li>
+</ul>
+<p><strong><em>#vim /var/www/html/info.php</em></strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>#find / -name php.ini</p>
+<p><strong><em>#find / -name php.ini</em></strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;php.ini</span><br></pre></td></tr></table></figure>
 
-<p>#vim /etc/httpd/conf/httpd.conf</p>
+<p><strong><em>#vim /etc/httpd/conf/httpd.conf</em></strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHPIniDir &#x2F;etc&#x2F;php.ini</span><br></pre></td></tr></table></figure>
 
-<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br><span class="line">#创建密码123456</span><br><span class="line"></span><br><span class="line">mysql -uroot -p123456</span><br><span class="line">CREATE DATABASE owncloud;</span><br><span class="line">GRANT ALL PRIVILEGES ON owncloud.* TO &#39;owncloud&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><hr>
+<ul>
+<li>mysql_secure_installation</li>
+</ul>
+<p><strong>创建密码123456</strong></p>
+<ul>
+<li>mysql -uroot -p123456</li>
+<li>CREATE DATABASE owncloud;</li>
+<li>GRANT ALL PRIVILEGES ON owncloud.* TO ‘owncloud’@’localhost’ IDENTIFIED BY ‘123456’;</li>
+<li>FLUSH PRIVILEGES;</li>
+<li>exit</li>
+</ul>
+<ul>
+<li>firewall-cmd –permanent –add-service=mysql</li>
+<li>firewall-cmd –permanent –add-service=http  </li>
+<li>firewall-cmd –zone=public –add-port=3306/tcp –permanent</li>
+</ul>
+<h1 id="centos7-搭建Chevereto图床"><a href="#centos7-搭建Chevereto图床" class="headerlink" title="centos7 搭建Chevereto图床"></a>centos7 搭建Chevereto图床</h1><p><em>压缩Chevereto-Free文件</em></p>
+<ul>
+<li>tar -zcvf /Users/zhanghaijin/Chevereto-Free.tar.gz Chevereto-Free</li>
+</ul>
+<p><em>解压Chevereto-Free.tar.gz</em></p>
+<ul>
+<li>tar -vxf Chevereto-Free.tar.gz -C /var/www/html</li>
+<li>cd /var/www/html</li>
+<li>mv Chevereto-Free/ chevereto</li>
+</ul>
+<p><em>#vim /var/www/html/chevereto/app/settings.php</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">$config[&#39;db_name&#39;] &#x3D; &#39;cheveretodb&#39;; </span><br><span class="line">$config[&#39;db_user&#39;] &#x3D; &#39;chevereto&#39;; </span><br><span class="line">$config[&#39;db_pass&#39;] &#x3D; &#39;password&#39;; </span><br><span class="line">$config[&#39;admin_password&#39;] &#x3D; &#39;password&#39;;</span><br><span class="line">?php&gt;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-service&#x3D;mysql</span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;http  </span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;3306&#x2F;tcp --permanent</span><br></pre></td></tr></table></figure>
+<ul>
+<li>chown -R apache:apache chevereto/</li>
+<li>chmod -R 777 /var/www/html/chevereto</li>
+</ul>
+<p><em>#vim /etc/httpd/conf.d/owncloud.conf</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost 192.168.100.204:80&gt;</span><br><span class="line">ServerAdmin webmaster@yourdomain.com</span><br><span class="line">DocumentRoot &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;owncloud&#x2F;&quot;</span><br><span class="line">ServerName yourdomain.com</span><br><span class="line">ServerAlias www.yourdomain.com</span><br><span class="line">ErrorLog &quot;&#x2F;var&#x2F;log&#x2F;httpd&#x2F;yourdomain.com-error_log&quot;</span><br><span class="line">CustomLog &quot;&#x2F;var&#x2F;log&#x2F;httpd&#x2F;yourdomain.com-access_log&quot; combined</span><br><span class="line">&lt;Directory &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;owncloud&#x2F;&quot;&gt;</span><br><span class="line">DirectoryIndex index.html index.php</span><br><span class="line">Options FollowSymLinks</span><br><span class="line">AllowOverride All</span><br><span class="line">Require all granted</span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
 
-
-<h4 id="ubuntu-18-04-owncloud"><a href="#ubuntu-18-04-owncloud" class="headerlink" title="ubuntu 18.04 owncloud"></a>ubuntu 18.04 owncloud</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/16/owncloud/" data-id="ckiv7adm4000771wi6hnf0u3m" data-title="owncloud" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ubuntu18.04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/16/ubuntu18.04/" class="article-date">
-  <time class="dt-published" datetime="2020-12-16T12:22:34.282Z" itemprop="datePublished">2020-12-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/16/ubuntu18.04/">ubuntu 18.04</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Ubuntu-18-04-开启root登录"><a href="#Ubuntu-18-04-开启root登录" class="headerlink" title="Ubuntu 18.04 开启root登录"></a>Ubuntu 18.04 开启root登录</h3><p>#sudo vim /etc/ssh/sshd_config</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart ssh</span><br></pre></td></tr></table></figure>
-<h3 id="删除ubuntu用户"><a href="#删除ubuntu用户" class="headerlink" title="删除ubuntu用户"></a>删除ubuntu用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deluser ubuntu --remove-home</span><br></pre></td></tr></table></figure>
+<ul>
+<li>systemctl restart php-fpm</li>
+<li>systemctl restart httpd</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/16/ubuntu18.04/" data-id="ckiv7adm6000971wi9lq47dsl" data-title="ubuntu 18.04" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-nginx" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/14/nginx/" class="article-date">
-  <time class="dt-published" datetime="2020-12-14T08:29:02.196Z" itemprop="datePublished">2020-12-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/14/nginx/">nginx</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="修改nginx默认端口80为81"><a href="#修改nginx默认端口80为81" class="headerlink" title="修改nginx默认端口80为81"></a>修改nginx默认端口80为81</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span><br><span class="line">#修改listen 端口为81</span><br><span class="line">systemctl restart nginx</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;81&#x2F;tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">#阿里云安全组规则开放81端口</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/14/nginx/" data-id="ckiv7adm3000671wigfx1hi19" data-title="nginx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/25/centos7/" data-id="ckj4eq5z10000z1wi5v1vfamf" data-title="centos7" class="article-share-link">Share</a>
       
       
       
@@ -455,8 +300,8 @@
   
     <article id="post-git" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/12/13/git/" class="article-date">
-  <time class="dt-published" datetime="2020-12-13T04:47:50.937Z" itemprop="datePublished">2020-12-13</time>
+    <a href="/2020/12/25/git/" class="article-date">
+  <time class="dt-published" datetime="2020-12-25T15:05:30.506Z" itemprop="datePublished">2020-12-25</time>
 </a>
     
   </div>
@@ -467,7 +312,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/13/git/">git</a>
+      <a class="p-name article-title" href="/2020/12/25/git/">git</a>
     </h1>
   
 
@@ -475,12 +320,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="git-fetch更新远程仓库"><a href="#git-fetch更新远程仓库" class="headerlink" title="git fetch更新远程仓库"></a>git fetch更新远程仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin hexo:tmp</span><br><span class="line">git diff tmp</span><br><span class="line">git merge tmp</span><br><span class="line">git branch -d tmp</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;zhanghaijin24&quot;</span><br><span class="line">git config --global user.email &quot;1171892570@qq.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;1171892570@qq.com&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="git-fetch更新远程仓库"><a href="#git-fetch更新远程仓库" class="headerlink" title="git fetch更新远程仓库"></a>git fetch更新远程仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin hexo:tmp</span><br><span class="line">git diff tmp</span><br><span class="line">git merge tmp</span><br><span class="line">git branch -d tmp</span><br></pre></td></tr></table></figure>
+<h3 id="如何上传博客工程到Github"><a href="#如何上传博客工程到Github" class="headerlink" title="如何上传博客工程到Github"></a>如何上传博客工程到Github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;zhanghaijin24&#x2F;zhanghaijin24.github.io.git </span><br><span class="line">git checkout -b hexo </span><br><span class="line">git add . </span><br><span class="line">git commit -m &quot;fix bug&quot;</span><br><span class="line">git push origin hexo </span><br></pre></td></tr></table></figure>
+<h3 id="修改，同步"><a href="#修改，同步" class="headerlink" title="修改，同步"></a>修改，同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;hexo&quot;</span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+
+<h3 id="从github拉取数据"><a href="#从github拉取数据" class="headerlink" title="从github拉取数据"></a>从github拉取数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/13/git/" data-id="ckiv7adly000271wiecbzgd2d" data-title="git" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/25/git/" data-id="ckj4eq5z70001z1wic9rmgcxy" data-title="git" class="article-share-link">Share</a>
       
       
       
@@ -492,9 +343,177 @@
 
 
   
-    <article id="post-git-info" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-ubuntu18.04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/12/13/git-info/" class="article-date">
+    <a href="/2020/12/25/ubuntu18.04/" class="article-date">
+  <time class="dt-published" datetime="2020-12-25T15:05:30.506Z" itemprop="datePublished">2020-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/12/25/ubuntu18.04/">ubuntu 18.04</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Ubuntu-18-04-开启root登录"><a href="#Ubuntu-18-04-开启root登录" class="headerlink" title="Ubuntu 18.04 开启root登录"></a>Ubuntu 18.04 开启root登录</h1><hr>
+<p><em>#sudo vim /etc/ssh/sshd_config</em><br><img src="http://101.201.197.193/images/2020/12/25/-2020-12-25-10.48.16.png" alt="ubuntu18.04/root"></p>
+<ul>
+<li>sudo systemctl restart ssh</li>
+</ul>
+<p><em>删除ubuntu用户</em></p>
+<ul>
+<li>deluser ubuntu –remove-home</li>
+</ul>
+<h1 id="ubuntu-18-04-修改默认ssh端口"><a href="#ubuntu-18-04-修改默认ssh端口" class="headerlink" title="ubuntu 18.04 修改默认ssh端口"></a>ubuntu 18.04 修改默认ssh端口</h1><p><em>#vim /etc/ssh/sshd_config</em><br><a target="_blank" rel="noopener" href="http://101.201.197.193/image/GTS"><img src="http://101.201.197.193/images/2020/12/25/-2020-12-25-10.51.50.png" alt="ubuntu18.04 /port"></a></p>
+<p><em>重启ssh</em></p>
+<ul>
+<li>systemctl restart ssh</li>
+</ul>
+<p><em>ufw配置</em></p>
+<ul>
+<li>ufw status verbose</li>
+<li>ufw enable</li>
+<li>ufw allow 22/tcp</li>
+<li>ufw allow 10086/tcp</li>
+<li>ufw status numbered</li>
+<li>ufw delete 2</li>
+</ul>
+<h1 id="ubuntu-18-04-安装vsftpd"><a href="#ubuntu-18-04-安装vsftpd" class="headerlink" title="ubuntu 18.04 安装vsftpd"></a>ubuntu 18.04 安装vsftpd</h1><ul>
+<li><p>apt update</p>
+</li>
+<li><p>apt install vsftpd</p>
+</li>
+<li><p>systemctl enable vsftpd</p>
+</li>
+<li><p>systemctl start vsftpd</p>
+</li>
+<li><p>netstat -antup | grep vsftpd</p>
+</li>
+<li><p>useradd david -m</p>
+</li>
+<li><p>passwd david</p>
+</li>
+<li><p>mkdir /ftp</p>
+</li>
+<li><p>chown -R david:david /ftp</p>
+</li>
+</ul>
+<p><em>#vim /etc/vsftpd.conf</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable&#x3D;NO</span><br><span class="line">local_enable&#x3D;YES</span><br><span class="line">write_enable&#x3D;YES</span><br><span class="line">chroot_local_user&#x3D;YES</span><br><span class="line">chroot_list_enable&#x3D;YES</span><br><span class="line">chroot_list_file&#x3D;&#x2F;etc&#x2F;vsftpd.chroot_list</span><br><span class="line">listen&#x3D;YES</span><br><span class="line">#listen_ipv6&#x3D;YES</span><br><span class="line"></span><br><span class="line">local_root&#x3D;&#x2F;ftp</span><br><span class="line">allow_writeable_chroot&#x3D;YES</span><br><span class="line">pasv_enable&#x3D;YES</span><br><span class="line">pasv_address&#x3D;192.144.237.214 #请修改为您的 Linux 云服务器公网 IP</span><br><span class="line">pasv_min_port&#x3D;40000</span><br><span class="line">pasv_max_port&#x3D;45000</span><br></pre></td></tr></table></figure>
+
+<p><em>#vim /etc/vsftpd.chroot_list</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">david</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>systemctl restart vsftpd</li>
+</ul>
+<h1 id="ubuntu-18-04安装hexo"><a href="#ubuntu-18-04安装hexo" class="headerlink" title="ubuntu 18.04安装hexo"></a>ubuntu 18.04安装hexo</h1><p><em>升级npm</em></p>
+<ul>
+<li><p>sudo npm install -g npm</p>
+</li>
+<li><p>sudo npm install hexo-cli -g</p>
+</li>
+<li><p>cd /usr/bin</p>
+</li>
+<li><p>sudo ln -s /usr/local/node/bin/hexo hexo</p>
+</li>
+<li><p>hexo -v</p>
+</li>
+<li><p>sudo ufw allow 4000/tcp</p>
+</li>
+</ul>
+<h1 id="ubuntu18-04-安装owncloud"><a href="#ubuntu18-04-安装owncloud" class="headerlink" title="ubuntu18.04 安装owncloud"></a>ubuntu18.04 安装owncloud</h1><hr>
+<p><em>installing Mysql</em></p>
+<ul>
+<li><p>apt update</p>
+</li>
+<li><p>apt install apache2 libapache2-mod-php7.2 openssl php-imagick php7.2-common php7.2-curl php7.2-gd php7.2-imap php7.2-intl php7.2-json php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-pgsql php-smbclient php-ssh2 php7.2-sqlite3 php7.2-xml php7.2-zip</p>
+</li>
+</ul>
+<p><em>查看apache2 是否安装</em><br><em>#dpkg -l apache2</em><br><img src="http://101.201.197.193/images/2020/12/23/-2020-12-23-9.07.40.png" alt="Alt text"></p>
+<p><em>启动apache2 ，以及开机启动</em></p>
+<ul>
+<li>systemctl start apache2</li>
+<li>systemctl enable apache2</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/25/ubuntu18.04/" data-id="ckj4eq5zt0004z1wiey79cnej" data-title="ubuntu 18.04" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/12/20/linux/" class="article-date">
+  <time class="dt-published" datetime="2020-12-20T05:51:22.400Z" itemprop="datePublished">2020-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/12/20/linux/">linux美化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="linux安装zsh、ohmyzsh"><a href="#linux安装zsh、ohmyzsh" class="headerlink" title="linux安装zsh、ohmyzsh"></a>linux安装zsh、ohmyzsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt install -y zsh</span><br><span class="line">chsh -s &#x2F;bin&#x2F;zsh</span><br><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;robbyrussell&#x2F;oh-my-zsh.git ~&#x2F;.oh-my-zsh</span><br><span class="line">cp ~&#x2F;.oh-my-zsh&#x2F;templates&#x2F;zshrc.zsh-template ~&#x2F;.zshrc</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $ZSH_CUSTOM&#x2F;plugins&#x2F;zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<p>#vim .zshrc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plugins&#x3D;(git</span><br><span class="line">        zsh-autosuggestions</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+<p>#source .zshrc</p>
+<h3 id="centos7-安装neovim"><a href="#centos7-安装neovim" class="headerlink" title="centos7 安装neovim"></a>centos7 安装neovim</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -vxf nvim-linux64.tar.gz -C &#x2F;usr&#x2F;local</span><br><span class="line">cd &#x2F;usr&#x2F;local</span><br><span class="line">mv nvim-linux64 nvim</span><br><span class="line">cd &#x2F;usr&#x2F;bin</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;nvim&#x2F;bin&#x2F;nvim nvim</span><br></pre></td></tr></table></figure>
+<h3 id="neovim-安装vim-plug"><a href="#neovim-安装vim-plug" class="headerlink" title="neovim 安装vim plug"></a>neovim 安装vim plug</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;.config&#x2F;nvim</span><br><span class="line">cd ~&#x2F;.config&#x2F;nvim</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;junegunn&#x2F;vim-plug.git</span><br><span class="line">mv vim-plug autoload</span><br></pre></td></tr></table></figure>
+<p>#nvim init.vim</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">call plug#begin(&#39;~&#x2F;.config&#x2F;nvim&#x2F;plugged&#39;)</span><br><span class="line"></span><br><span class="line">Plug &#39;vim-airline&#x2F;vim-airline&#39;</span><br><span class="line">call plug#end()</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -vxf node-v12.16.1-linux-x64.tar.xz -C &#x2F;usr&#x2F;local</span><br><span class="line">cd &#x2F;usr&#x2F;local</span><br><span class="line">mv node-v12.16.1-linux-x64&#x2F; node</span><br><span class="line">cd &#x2F;usr&#x2F;bin</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;node node</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;npm npm</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/20/linux/" data-id="ckj4eq5zr0003z1wi6899hgr9" data-title="linux美化" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/12/13/hello-world/" class="article-date">
   <time class="dt-published" datetime="2020-12-13T04:22:09.596Z" itemprop="datePublished">2020-12-13</time>
 </a>
     
@@ -506,7 +525,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/13/git-info/">git info</a>
+      <a class="p-name article-title" href="/2020/12/13/hello-world/">Hello World</a>
     </h1>
   
 
@@ -514,14 +533,24 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line"></span><br><span class="line">git reset --hard origin&#x2F;hexo</span><br></pre></td></tr></table></figure>
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="如何上传博客工程到Github"><a href="#如何上传博客工程到Github" class="headerlink" title="如何上传博客工程到Github"></a>如何上传博客工程到Github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;zhanghaijin24&#x2F;zhanghaijin24.github.io.git </span><br><span class="line">git checkout -b hexo </span><br><span class="line">git add . </span><br><span class="line">git commit -m &quot;fix bug&quot;</span><br><span class="line">git push origin hexo </span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/13/git-info/" data-id="ckiv7adlw000171wi04193qd9" data-title="git info" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/13/hello-world/" data-id="ckj4eq5z90002z1widpbr74yv" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -534,11 +563,6 @@
 
   
 
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
@@ -569,23 +593,23 @@
       <ul>
         
           <li>
-            <a href="/2020/12/19/centos7/">centos7</a>
+            <a href="/2020/12/25/centos7/">centos7</a>
           </li>
         
           <li>
-            <a href="/2020/12/19/hexo/">hexo</a>
+            <a href="/2020/12/25/git/">git</a>
           </li>
         
           <li>
-            <a href="/2020/12/19/linux/">linux美化</a>
+            <a href="/2020/12/25/ubuntu18.04/">ubuntu 18.04</a>
           </li>
         
           <li>
-            <a href="/2020/12/19/ssh/">修改默认ssh端口</a>
+            <a href="/2020/12/20/linux/">linux美化</a>
           </li>
         
           <li>
-            <a href="/2020/12/19/vsftpd/">vsftpd</a>
+            <a href="/2020/12/13/hello-world/">Hello World</a>
           </li>
         
       </ul>
