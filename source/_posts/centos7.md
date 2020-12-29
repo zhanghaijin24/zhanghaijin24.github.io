@@ -212,3 +212,17 @@ Require all granted
 - systemctl restart php-fpm
 - systemctl restart httpd
 
+# 安装fd-find
+---
+- tar -xvf fd-v8.2.1-i686-unknown-linux-musl.tar -C /usr/local
+- cd /usr/local/fd-v8.2.1-i686-unknown-linux-musl
+- cp ./fd /usr/local/bin/
+- cp ./fd.1 /usr/local/share/man/man1
+- mandb
+
+#安装fzf及其配置
+---
+*vim .zshrc*
+```
+export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules"     -E ".oh-my-zsh" -E ".npm" . /etc /home'
+```

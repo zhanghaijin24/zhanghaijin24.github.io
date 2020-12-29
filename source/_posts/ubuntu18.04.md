@@ -96,4 +96,44 @@ david
 
 - systemctl start apache2
 - systemctl enable apache2
+*安装Mariadb*
+- apt install mariadb-server
+- mysql_secure_installation
+	- CREATE DATABASE linuxidc_owdb;
+	- GRANT ALL ON linuxidc_owdb.* TO 'linuxidc_owuser'@'localhost' IDENTIFIED BY'v';
+	- FLUSH PRIVILEGES;
+	- EXIT
+- unzip owncloud-10.4.0.zip -d /var/www
+*# vim /etc/apache2/conf-available/owncloud.conf*
+```
+Alias /owncloud "/var/www/owncloud"
+  
+<Directory /var/www/owncloud>
+Options +FollowSymlinks
+AllowOverride ALL
+
+<IfModule mod_dav.c>
+Dav off
+</IfModule>
+
+SetEnv HOME /var/www/owncloud
+SetEnv HTTP_HOME /var/www/owncloud
+
+</Directory>
+```
+
+- a2enconf owncloud
+- a2enmod rewrite
+- a2enmod headers
+- a2enmod env
+- a2enmod dir
+- a2enmod mime
+
+- systemctl restart apache2
+
+- cd /var/www/owncloud
+- mkdir data
+- chown -R www-data:www-data data
+- chown -R www-data:www-data config
+- chown -R www-data:www-data apps
 
