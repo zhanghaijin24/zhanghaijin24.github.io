@@ -22,3 +22,10 @@ title: mac
 
 - export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
+# 安装hexo以及nodejs
+---
+- brew install node
+- sudo sudo npm install -g hexo-cli
+- cd cd zhanghaijin24.github.io
+- sudo npm install
+- sudo npm install hexo-deployer-git
