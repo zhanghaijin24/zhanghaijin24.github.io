@@ -6,6 +6,18 @@ title: mac
 ---
 - git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 - ~/.fzf/install
+*安装fd*
+- brew install fd
+*~/.zshrc 配置fzf*
+- 
+- 
+
+# 安装ranger
+---
+- tar -vxf ranger-stable.tar
+- cd /usr/local/bin
+- ln -s /Users/zhanghaijin/Downloads/ranger/ranger.py ranger
+
 
 # Mac使用终端格式化U盘
 ---
@@ -43,3 +55,17 @@ title: mac
 - cd cd zhanghaijin24.github.io
 - sudo npm install
 - sudo npm install hexo-deployer-git
+
+# 安装neovim
+---
+- brew install neovim
+
+*下载vim-plug*
+- cd /Users/zhanghaijin/.config/nvim
+- git clone  --depth 1 https://github.com/junegunn/vim-plug.git
+- mv vim-plug autoload 
+
+* 安装coc.nvim*
+- brew install node 
+- sudo npm i -g neovim yarn
+-
