@@ -22,7 +22,6 @@ title: mac
 
 - export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
-<<<<<<< HEAD
 # 安装ohmyzsh
 - brew install zsh
 - cat /etc/shells
@@ -36,4 +35,3 @@ title: mac
 - cd cd zhanghaijin24.github.io
 - sudo npm install
 - sudo npm install hexo-deployer-git
->>>>>>> tmp
