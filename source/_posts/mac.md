@@ -27,6 +27,14 @@ title: mac
 - cat /etc/shells
 - chsh -s /bin/zsh
 - reboot
+
+- git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+- cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+
+- git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+- git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
 =======
 # 安装hexo以及nodejs
 ---
