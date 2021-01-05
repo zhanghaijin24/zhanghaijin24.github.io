@@ -22,3 +22,8 @@ title: mac
 
 - export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
+# 安装ohmyzsh
+- brew install zsh
+- cat /etc/shells
+- chsh -s /bin/zsh
+- reboot
