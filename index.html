@@ -71,196 +71,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-archlinux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/07/archlinux/" class="article-date">
-  <time class="dt-published" datetime="2021-01-07T05:22:05.809Z" itemprop="datePublished">2021-01-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/07/archlinux/">archlinux</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="安装archlinux"><a href="#安装archlinux" class="headerlink" title="安装archlinux"></a>安装archlinux</h1><hr>
-<ul>
-<li>timedatectl set-ntp true</li>
-</ul>
-<p><em>#fdisk /dev/sda</em><br><img src="http://101.201.197.193/images/2021/01/06/B12B5CA3-B572-46EE-B998-595DD82F79BE.jpg" alt="B12B5CA3-B572-46EE-B998-595DD82F79BE.jpg"><br><img src="http://101.201.197.193/images/2021/01/06/D242AF9D-6380-4167-B834-4BFC420E927D.jpg" alt="D242AF9D-6380-4167-B834-4BFC420E927D.jpg"><br><em>fdisk -l</em></p>
-<ul>
-<li><p>mkfs.fat -F32 /dev/sda1</p>
-</li>
-<li><p>mkfs.ext4 /dev/sda3</p>
-</li>
-<li><p>mkswap /dev/sda2</p>
-</li>
-<li><p>swapon /dev/sda2</p>
-</li>
-<li><p>mount /dev/sda3 /mnt</p>
-</li>
-<li><p>mkdir -p /mnt/boot/efi</p>
-</li>
-<li><p>mount /dev/sda1 /mnt/boot/efi</p>
-</li>
-<li><p>pacstrap /mnt base linux linux-firmware</p>
-</li>
-</ul>
-<p><strong><em>vim /etc/pacman.d/mirrorlist</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##China</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;mirrors.163.com&#x2F;archlinux&#x2F;$repo&#x2F;os&#x2F;$arch</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/07/archlinux/" data-id="ckjmelyhe0000l6wiam8v2b0m" data-title="archlinux" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-mac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/05/mac/" class="article-date">
-  <time class="dt-published" datetime="2021-01-05T14:35:42.710Z" itemprop="datePublished">2021-01-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/05/mac/">mac</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="安装fzf"><a href="#安装fzf" class="headerlink" title="安装fzf"></a>安装fzf</h1><hr>
-<ul>
-<li>git clone –depth 1 <a target="_blank" rel="noopener" href="https://github.com/junegunn/fzf.git">https://github.com/junegunn/fzf.git</a> ~/.fzf</li>
-<li>~/.fzf/install</li>
-</ul>
-<p><em>安装fd</em></p>
-<ul>
-<li>brew install fd</li>
-</ul>
-<h2 id="zshrc-配置fzf"><a href="#zshrc-配置fzf" class="headerlink" title="~/.zshrc 配置fzf"></a><em>~/.zshrc 配置fzf</em></h2><ul>
-<li><h1 id="安装ranger"><a href="#安装ranger" class="headerlink" title="安装ranger"></a>安装ranger</h1></li>
-</ul>
-<hr>
-<ul>
-<li>tar -vxf ranger-stable.tar</li>
-<li>cd /usr/local/bin</li>
-<li>ln -s /Users/zhanghaijin/Downloads/ranger/ranger.py ranger</li>
-</ul>
-<h1 id="Mac使用终端格式化U盘"><a href="#Mac使用终端格式化U盘" class="headerlink" title="Mac使用终端格式化U盘"></a>Mac使用终端格式化U盘</h1><hr>
-<ul>
-<li>diskutil list</li>
-<li>sudo diskutil eraseDisk FAT32 MYUSB MBRFormat /dev/disk2</li>
-</ul>
-<h1 id="安装homebrew"><a href="#安装homebrew" class="headerlink" title="安装homebrew"></a>安装homebrew</h1><hr>
-<ul>
-<li><p>/bin/zsh -c “$(curl -fsSL <a target="_blank" rel="noopener" href="https://gitee.com/jyotish/HomebrewCN/raw/master/Homebrew.sh)&quot;">https://gitee.com/jyotish/HomebrewCN/raw/master/Homebrew.sh)&quot;</a></p>
-</li>
-<li><p>git config –global http.postBuffer 924288000</p>
-</li>
-<li><p>git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch –unshallow</p>
-</li>
-<li><p> git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask fetch –unshallow</p>
-</li>
-<li><p>export HOMEBREW_CORE_GIT_REMOTE=”<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&quot;">https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&quot;</a></p>
-</li>
-<li><p>export HOMEBREW_BOTTLE_DOMAIN=”<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&quot;">https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&quot;</a></p>
-</li>
-</ul>
-<h1 id="安装ohmyzsh"><a href="#安装ohmyzsh" class="headerlink" title="安装ohmyzsh"></a>安装ohmyzsh</h1><ul>
-<li><p>brew install zsh</p>
-</li>
-<li><p>cat /etc/shells</p>
-</li>
-<li><p>chsh -s /bin/zsh</p>
-</li>
-<li><p>reboot</p>
-</li>
-<li><p>git clone <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh.git">https://github.com/ohmyzsh/ohmyzsh.git</a> ~/.oh-my-zsh</p>
-</li>
-<li><p>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</p>
-</li>
-<li><p>git clone <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting.git">https://github.com/zsh-users/zsh-syntax-highlighting.git</a> $ZSH_CUSTOM/plugins/zsh-syntax-highlighting</p>
-</li>
-<li><p>git clone <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a> $ZSH_CUSTOM/plugins/zsh-autosuggestions</p>
-</li>
-</ul>
-<p>=======</p>
-<h1 id="安装hexo以及nodejs"><a href="#安装hexo以及nodejs" class="headerlink" title="安装hexo以及nodejs"></a>安装hexo以及nodejs</h1><hr>
-<ul>
-<li>brew install node</li>
-<li>sudo sudo npm install -g hexo-cli</li>
-<li>cd cd zhanghaijin24.github.io</li>
-<li>sudo npm install</li>
-<li>sudo npm install hexo-deployer-git</li>
-</ul>
-<h1 id="安装neovim"><a href="#安装neovim" class="headerlink" title="安装neovim"></a>安装neovim</h1><hr>
-<ul>
-<li>brew install neovim</li>
-</ul>
-<p><em>下载vim-plug</em></p>
-<ul>
-<li>cd /Users/zhanghaijin/.config/nvim</li>
-<li>git clone  –depth 1 <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug.git">https://github.com/junegunn/vim-plug.git</a></li>
-<li>mv vim-plug autoload </li>
-</ul>
-<ul>
-<li>安装coc.nvim*</li>
-</ul>
-<ul>
-<li>brew install node </li>
-<li>sudo npm i -g neovim yarn</li>
-<li></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/05/mac/" data-id="ckjmelyhp0005l6wi0z7h5ijy" data-title="mac" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-centos7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/12/29/centos7/" class="article-date">
-  <time class="dt-published" datetime="2020-12-29T04:22:28.013Z" itemprop="datePublished">2020-12-29</time>
+    <a href="/2021/01/15/centos7/" class="article-date">
+  <time class="dt-published" datetime="2021-01-14T16:20:14.323Z" itemprop="datePublished">2021-01-15</time>
 </a>
     
   </div>
@@ -271,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/29/centos7/">centos7</a>
+      <a class="p-name article-title" href="/2021/01/15/centos7/">centos7</a>
     </h1>
   
 
@@ -479,10 +293,19 @@
 <h2 id="安装fzf及其配置"><a href="#安装fzf及其配置" class="headerlink" title="#安装fzf及其配置"></a>#安装fzf及其配置</h2><p><em>vim .zshrc</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export FZF_DEFAULT_COMMAND&#x3D;&#39;fd --hidden --follow -E &quot;.git&quot; -E &quot;node_modules&quot;     -E &quot;.oh-my-zsh&quot; -E &quot;.npm&quot; . &#x2F;etc &#x2F;home&#39;</span><br></pre></td></tr></table></figure>
 
+<h1 id="Rsync简单详解"><a href="#Rsync简单详解" class="headerlink" title="Rsync简单详解"></a>Rsync简单详解</h1><ul>
+<li>yum -y install rsync</li>
+<li>rsync -zvz zhanghaijin24.github.io/ test/</li>
+</ul>
+<p><strong><em>远程同步文件</em></strong></p>
+<ul>
+<li>rsync -avz -e ‘ssh -p 10086’ /ftp/ <a href="mailto:&#x64;&#97;&#118;&#105;&#x64;&#64;&#x31;&#48;&#x31;&#x2e;&#50;&#x30;&#x31;&#46;&#x31;&#x39;&#55;&#x2e;&#x31;&#x39;&#x33;">&#x64;&#97;&#118;&#105;&#x64;&#64;&#x31;&#48;&#x31;&#x2e;&#50;&#x30;&#x31;&#46;&#x31;&#x39;&#55;&#x2e;&#x31;&#x39;&#x33;</a>:~/text</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/29/centos7/" data-id="ckjmelyhk0001l6wi6pge0djo" data-title="centos7" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/15/centos7/" data-id="ckjx2d8em000139wibc8t5783" data-title="centos7" class="article-share-link">Share</a>
       
       
       
@@ -496,8 +319,8 @@
   
     <article id="post-ubuntu18.04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/12/29/ubuntu18.04/" class="article-date">
-  <time class="dt-published" datetime="2020-12-29T04:22:28.013Z" itemprop="datePublished">2020-12-29</time>
+    <a href="/2021/01/10/ubuntu18.04/" class="article-date">
+  <time class="dt-published" datetime="2021-01-10T09:29:31.592Z" itemprop="datePublished">2021-01-10</time>
 </a>
     
   </div>
@@ -508,7 +331,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/29/ubuntu18.04/">ubuntu 18.04</a>
+      <a class="p-name article-title" href="/2021/01/10/ubuntu18.04/">ubuntu 18.04</a>
     </h1>
   
 
@@ -538,6 +361,7 @@
 <li>ufw allow 10086/tcp</li>
 <li>ufw status numbered</li>
 <li>ufw delete 2</li>
+<li>ufw disable</li>
 </ul>
 <h1 id="ubuntu-18-04-安装vsftpd"><a href="#ubuntu-18-04-安装vsftpd" class="headerlink" title="ubuntu 18.04 安装vsftpd"></a>ubuntu 18.04 安装vsftpd</h1><ul>
 <li><p>apt update</p>
@@ -638,11 +462,238 @@
 <li><p>chown -R www-data:www-data apps</p>
 </li>
 </ul>
+<h1 id="彻底卸载mysql"><a href="#彻底卸载mysql" class="headerlink" title="彻底卸载mysql"></a>彻底卸载mysql</h1><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- dpkg --list | grep mariadb-server</span><br><span class="line">- apt-get remove --purge mariadb-common</span><br><span class="line">- apt-get remove --purge php7.2-mysql</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装Chevereto"><a href="#安装Chevereto" class="headerlink" title="安装Chevereto"></a>安装Chevereto</h1><hr>
+<ul>
+<li><p>apt-get install mariadb-server mariadb-client</p>
+</li>
+<li><p>systemctl start mysql</p>
+</li>
+<li><p>systemctl enable mysql</p>
+</li>
+<li><p>mysql_secure_installation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- CREATE DATABASE cheveretodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</span><br><span class="line">- GRANT ALL PRIVILEGES ON cheveretodb.* TO &#39;chevereto&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;</span><br><span class="line">- FLUSH PRIVILEGES;</span><br><span class="line">- \q</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tar -xvzf Chevereto-Free.tar.gz</p>
+</li>
+<li><p>mv Chevereto-Free.tar.gz /var/www/html/chevereto</p>
+</li>
+<li><p>cd /var/www/html/chevereto</p>
+</li>
+<li><p>vim app/settings.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$config[&#39;db_name&#39;] &#x3D; &#39;cheveretodb&#39;;</span><br><span class="line">$config[&#39;db_user&#39;] &#x3D; &#39;chevereto&#39;;</span><br><span class="line">$config[&#39;db_pass&#39;] &#x3D; &#39;password&#39;;</span><br><span class="line">$config[&#39;admin_password&#39;] &#x3D; &#39;password&#39;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>chown -R www-data:www-data /var/www/html/chevereto</p>
+</li>
+<li><p>chmod -R 777 /var/www/html/chevereto</p>
+</li>
+<li><p>vim /etc/apache2/sites-available/chevereto.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">ServerAdmin admin@example.com</span><br><span class="line">DocumentRoot &#x2F;var&#x2F;www&#x2F;html&#x2F;chevereto&#x2F;</span><br><span class="line">ServerName example.com</span><br><span class="line">&lt;Directory &#x2F;var&#x2F;www&#x2F;html&#x2F;chevereto&#x2F;&gt;</span><br><span class="line">Options FollowSymLinks</span><br><span class="line">DirectoryIndex index.php</span><br><span class="line">AllowOverride All</span><br><span class="line">Order allow,deny</span><br><span class="line">allow from all</span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br><span class="line">ErrorLog &#x2F;var&#x2F;log&#x2F;apache2&#x2F;chevereto-error_log</span><br><span class="line">CustomLog &#x2F;var&#x2F;log&#x2F;apache2&#x2F;chevereto-access_log common</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>a2ensite chevereto</p>
+</li>
+<li><p>systemctl restart apache2</p>
+</li>
+</ul>
+<p><strong><em>配置防火墙</em></strong></p>
+<ul>
+<li>ufw enable</li>
+<li>ufw allow 80</li>
+<li>ufw reload</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/29/ubuntu18.04/" data-id="ckjmelyhq0006l6wi9b0s6cmo" data-title="ubuntu 18.04" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/10/ubuntu18.04/" data-id="ckjx2d8es000639wi1ke10rn4" data-title="ubuntu 18.04" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-archlinux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/07/archlinux/" class="article-date">
+  <time class="dt-published" datetime="2021-01-07T05:22:05.809Z" itemprop="datePublished">2021-01-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/01/07/archlinux/">archlinux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="安装archlinux"><a href="#安装archlinux" class="headerlink" title="安装archlinux"></a>安装archlinux</h1><hr>
+<ul>
+<li>timedatectl set-ntp true</li>
+</ul>
+<p><em>#fdisk /dev/sda</em><br><img src="http://101.201.197.193/images/2021/01/06/B12B5CA3-B572-46EE-B998-595DD82F79BE.jpg" alt="B12B5CA3-B572-46EE-B998-595DD82F79BE.jpg"><br><img src="http://101.201.197.193/images/2021/01/06/D242AF9D-6380-4167-B834-4BFC420E927D.jpg" alt="D242AF9D-6380-4167-B834-4BFC420E927D.jpg"><br><em>fdisk -l</em></p>
+<ul>
+<li><p>mkfs.fat -F32 /dev/sda1</p>
+</li>
+<li><p>mkfs.ext4 /dev/sda3</p>
+</li>
+<li><p>mkswap /dev/sda2</p>
+</li>
+<li><p>swapon /dev/sda2</p>
+</li>
+<li><p>mount /dev/sda3 /mnt</p>
+</li>
+<li><p>mkdir -p /mnt/boot/efi</p>
+</li>
+<li><p>mount /dev/sda1 /mnt/boot/efi</p>
+</li>
+<li><p>pacstrap /mnt base linux linux-firmware</p>
+</li>
+</ul>
+<p><strong><em>vim /etc/pacman.d/mirrorlist</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##China</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;mirrors.163.com&#x2F;archlinux&#x2F;$repo&#x2F;os&#x2F;$arch</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/07/archlinux/" data-id="ckjx2d8eg000039wi5rhq6c11" data-title="archlinux" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/05/mac/" class="article-date">
+  <time class="dt-published" datetime="2021-01-05T14:35:42.710Z" itemprop="datePublished">2021-01-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/01/05/mac/">mac</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="安装fzf"><a href="#安装fzf" class="headerlink" title="安装fzf"></a>安装fzf</h1><hr>
+<ul>
+<li>git clone –depth 1 <a target="_blank" rel="noopener" href="https://github.com/junegunn/fzf.git">https://github.com/junegunn/fzf.git</a> ~/.fzf</li>
+<li>~/.fzf/install</li>
+</ul>
+<p><em>安装fd</em></p>
+<ul>
+<li>brew install fd</li>
+</ul>
+<h2 id="zshrc-配置fzf"><a href="#zshrc-配置fzf" class="headerlink" title="~/.zshrc 配置fzf"></a><em>~/.zshrc 配置fzf</em></h2><ul>
+<li><h1 id="安装ranger"><a href="#安装ranger" class="headerlink" title="安装ranger"></a>安装ranger</h1></li>
+</ul>
+<hr>
+<ul>
+<li>tar -vxf ranger-stable.tar</li>
+<li>cd /usr/local/bin</li>
+<li>ln -s /Users/zhanghaijin/Downloads/ranger/ranger.py ranger</li>
+</ul>
+<h1 id="Mac使用终端格式化U盘"><a href="#Mac使用终端格式化U盘" class="headerlink" title="Mac使用终端格式化U盘"></a>Mac使用终端格式化U盘</h1><hr>
+<ul>
+<li>diskutil list</li>
+<li>sudo diskutil eraseDisk FAT32 MYUSB MBRFormat /dev/disk2</li>
+</ul>
+<h1 id="安装homebrew"><a href="#安装homebrew" class="headerlink" title="安装homebrew"></a>安装homebrew</h1><hr>
+<ul>
+<li><p>/bin/zsh -c “$(curl -fsSL <a target="_blank" rel="noopener" href="https://gitee.com/jyotish/HomebrewCN/raw/master/Homebrew.sh)&quot;">https://gitee.com/jyotish/HomebrewCN/raw/master/Homebrew.sh)&quot;</a></p>
+</li>
+<li><p>git config –global http.postBuffer 924288000</p>
+</li>
+<li><p>git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch –unshallow</p>
+</li>
+<li><p> git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask fetch –unshallow</p>
+</li>
+<li><p>export HOMEBREW_CORE_GIT_REMOTE=”<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&quot;">https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&quot;</a></p>
+</li>
+<li><p>export HOMEBREW_BOTTLE_DOMAIN=”<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&quot;">https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&quot;</a></p>
+</li>
+</ul>
+<h1 id="安装ohmyzsh"><a href="#安装ohmyzsh" class="headerlink" title="安装ohmyzsh"></a>安装ohmyzsh</h1><ul>
+<li><p>brew install zsh</p>
+</li>
+<li><p>cat /etc/shells</p>
+</li>
+<li><p>chsh -s /bin/zsh</p>
+</li>
+<li><p>reboot</p>
+</li>
+<li><p>git clone <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh.git">https://github.com/ohmyzsh/ohmyzsh.git</a> ~/.oh-my-zsh</p>
+</li>
+<li><p>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</p>
+</li>
+<li><p>git clone <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting.git">https://github.com/zsh-users/zsh-syntax-highlighting.git</a> $ZSH_CUSTOM/plugins/zsh-syntax-highlighting</p>
+</li>
+<li><p>git clone <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a> $ZSH_CUSTOM/plugins/zsh-autosuggestions</p>
+</li>
+</ul>
+<p>=======</p>
+<h1 id="安装hexo以及nodejs"><a href="#安装hexo以及nodejs" class="headerlink" title="安装hexo以及nodejs"></a>安装hexo以及nodejs</h1><hr>
+<ul>
+<li>brew install node</li>
+<li>sudo sudo npm install -g hexo-cli</li>
+<li>cd cd zhanghaijin24.github.io</li>
+<li>sudo npm install</li>
+<li>sudo npm install hexo-deployer-git</li>
+</ul>
+<h1 id="安装neovim"><a href="#安装neovim" class="headerlink" title="安装neovim"></a>安装neovim</h1><hr>
+<ul>
+<li>brew install neovim</li>
+</ul>
+<p><em>下载vim-plug</em></p>
+<ul>
+<li>cd /Users/zhanghaijin/.config/nvim</li>
+<li>git clone  –depth 1 <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug.git">https://github.com/junegunn/vim-plug.git</a></li>
+<li>mv vim-plug autoload </li>
+</ul>
+<ul>
+<li>安装coc.nvim*</li>
+</ul>
+<ul>
+<li>brew install node </li>
+<li>sudo npm i -g neovim yarn</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/05/mac/" data-id="ckjx2d8er000539wi6tdu5a8b" data-title="mac" class="article-share-link">Share</a>
       
       
       
@@ -687,7 +738,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/25/git/" data-id="ckjmelyhm0002l6wi7w8fhzvh" data-title="git" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/25/git/" data-id="ckjx2d8en000239wi0ak9el14" data-title="git" class="article-share-link">Share</a>
       
       
       
@@ -736,7 +787,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/20/linux/" data-id="ckjmelyho0004l6wi6f1tcrfd" data-title="linux美化" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/20/linux/" data-id="ckjx2d8eq000439wi6clp6wtw" data-title="linux美化" class="article-share-link">Share</a>
       
       
       
@@ -787,7 +838,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/13/hello-world/" data-id="ckjmelyhn0003l6wieoa083y1" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/13/hello-world/" data-id="ckjx2d8ep000339wi8l7reccd" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -830,19 +881,19 @@
       <ul>
         
           <li>
+            <a href="/2021/01/15/centos7/">centos7</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/10/ubuntu18.04/">ubuntu 18.04</a>
+          </li>
+        
+          <li>
             <a href="/2021/01/07/archlinux/">archlinux</a>
           </li>
         
           <li>
             <a href="/2021/01/05/mac/">mac</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/29/centos7/">centos7</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/29/ubuntu18.04/">ubuntu 18.04</a>
           </li>
         
           <li>
