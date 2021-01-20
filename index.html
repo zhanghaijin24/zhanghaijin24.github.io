@@ -74,7 +74,7 @@
     <article id="post-hongji" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/01/20/hongji/" class="article-date">
-  <time class="dt-published" datetime="2021-01-20T10:43:58.873Z" itemprop="datePublished">2021-01-20</time>
+  <time class="dt-published" datetime="2021-01-20T15:04:10.415Z" itemprop="datePublished">2021-01-20</time>
 </a>
     
   </div>
@@ -111,11 +111,247 @@
 <h1 id="下载ubuntu系统"><a href="#下载ubuntu系统" class="headerlink" title="下载ubuntu系统"></a>下载ubuntu系统</h1><ul>
 <li><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu-releases/">http://mirrors.aliyun.com/ubuntu-releases/</a></li>
 </ul>
-<h1 id="下载USBWriter"><a href="#下载USBWriter" class="headerlink" title="下载USBWriter"></a>下载USBWriter</h1>
+<h1 id="下载USBWriter"><a href="#下载USBWriter" class="headerlink" title="下载USBWriter"></a>下载USBWriter</h1><h1 id="DELL-Inspiron-i5-5000-Series安裝ubuntu18-04到固態硬盤"><a href="#DELL-Inspiron-i5-5000-Series安裝ubuntu18-04到固態硬盤" class="headerlink" title="DELL Inspiron i5 5000 Series安裝ubuntu18.04到固態硬盤"></a>DELL Inspiron i5 5000 Series安裝ubuntu18.04到固態硬盤</h1><p><strong><em>1,按F2配置bios</em></strong></p>
+<ul>
+<li><img src="http://101.201.197.193/images/2021/01/20/92F84ACE-9872-4C1C-8004-3F1F4876A247.jpg" alt="92F84ACE-9872-4C1C-8004-3F1F4876A247.jpg"></li>
+</ul>
+<ul>
+<li><img src="http://101.201.197.193/images/2021/01/20/8A30C296-7373-4B62-9A4A-2D5B06DB6242.jpg" alt="8A30C296-7373-4B62-9A4A-2D5B06DB6242.jpg"></li>
+<li><img src="http://101.201.197.193/images/2021/01/20/E74D701B-C520-4131-9180-EFC415E509C0.jpg" alt="E74D701B-C520-4131-9180-EFC415E509C0.jpg"></li>
+</ul>
+<p><strong><em>2,按F12進入usb</em></strong></p>
+<ul>
+<li><img src="http://101.201.197.193/images/2021/01/20/A38BD449-414F-43C8-9276-D3F47021AF7E.jpg" alt="A38BD449-414F-43C8-9276-D3F47021AF7E.jpg"></li>
+</ul>
+<h1 id="ubuntu18-04安裝hexo"><a href="#ubuntu18-04安裝hexo" class="headerlink" title="ubuntu18.04安裝hexo"></a>ubuntu18.04安裝hexo</h1><p><strong><em>安裝nodejs</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -vxf node-v12.16.1-linux-x64.tar.xz -C &#x2F;usr&#x2F;local</span><br><span class="line">cd &#x2F;usr&#x2F;local</span><br><span class="line">mv node-v12.16.1-linux-x64&#x2F; node</span><br><span class="line">cd &#x2F;usr&#x2F;bin</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;node node</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;npm npm</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p><strong><em>安裝hexo</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g npm</span><br><span class="line">sudo npm install hexo-cli -g</span><br><span class="line">cd &#x2F;usr&#x2F;bin</span><br><span class="line">sudo ln -s &#x2F;usr&#x2F;local&#x2F;node&#x2F;bin&#x2F;hexo hexo</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>從github克隆hexo文件</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone -b hexo https:&#x2F;&#x2F;github.com&#x2F;zhanghaijin24&#x2F;zhanghaijin24.github.io.git</span><br><span class="line">cd zhanghaijin24.github.io </span><br><span class="line">sudo npm install</span><br><span class="line">udo npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p><strong><em>推送到github基本操作</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;hexo&quot;</span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+<p><strong><em>git基本操作</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h1 id="Rsync-簡單詳解"><a href="#Rsync-簡單詳解" class="headerlink" title="Rsync 簡單詳解"></a>Rsync 簡單詳解</h1><p><strong><em>遠程centos7同步到本地ubuntu18.04</em></strong></p>
+<ul>
+<li>rsync -avz -e ‘ssh -p 10086’ <a href="mailto:&#x64;&#x61;&#x76;&#x69;&#100;&#x40;&#x31;&#48;&#x31;&#46;&#50;&#x30;&#49;&#x2e;&#x31;&#x39;&#x37;&#46;&#49;&#x39;&#51;">&#x64;&#x61;&#x76;&#x69;&#100;&#x40;&#x31;&#48;&#x31;&#46;&#50;&#x30;&#49;&#x2e;&#x31;&#x39;&#x37;&#46;&#49;&#x39;&#51;</a>:~/download/ ~/Downloads</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/20/hongji/" data-id="ckk5avhhv00044pwiccwkba5y" data-title="DELL Inspiron i5 5000 Series安装系统" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/20/hongji/" data-id="ckk5k60qo0004v1wieb783p3z" data-title="DELL Inspiron i5 5000 Series安装系统" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-ubuntu18.04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/20/ubuntu18.04/" class="article-date">
+  <time class="dt-published" datetime="2021-01-20T10:53:56.579Z" itemprop="datePublished">2021-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/01/20/ubuntu18.04/">ubuntu 18.04</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Ubuntu-18-04-开启root登录"><a href="#Ubuntu-18-04-开启root登录" class="headerlink" title="Ubuntu 18.04 开启root登录"></a>Ubuntu 18.04 开启root登录</h1><hr>
+<p><em>#sudo vim /etc/ssh/sshd_config</em><br><img src="http://101.201.197.193/images/2020/12/25/-2020-12-25-10.48.16.png" alt="ubuntu18.04/root"></p>
+<ul>
+<li>sudo systemctl restart ssh</li>
+</ul>
+<p><em>删除ubuntu用户</em></p>
+<ul>
+<li>deluser ubuntu –remove-home</li>
+</ul>
+<h1 id="ubuntu-18-04-修改默认ssh端口"><a href="#ubuntu-18-04-修改默认ssh端口" class="headerlink" title="ubuntu 18.04 修改默认ssh端口"></a>ubuntu 18.04 修改默认ssh端口</h1><p><em>#vim /etc/ssh/sshd_config</em><br><a target="_blank" rel="noopener" href="http://101.201.197.193/image/GTS"><img src="http://101.201.197.193/images/2020/12/25/-2020-12-25-10.51.50.png" alt="ubuntu18.04 /port"></a></p>
+<p><em>重启ssh</em></p>
+<ul>
+<li>systemctl restart ssh</li>
+</ul>
+<p><em>ufw配置</em></p>
+<ul>
+<li>ufw status verbose</li>
+<li>ufw enable</li>
+<li>ufw allow 22/tcp</li>
+<li>ufw allow 10086/tcp</li>
+<li>ufw status numbered</li>
+<li>ufw delete 2</li>
+<li>ufw disable</li>
+</ul>
+<h1 id="ubuntu-18-04-安装vsftpd"><a href="#ubuntu-18-04-安装vsftpd" class="headerlink" title="ubuntu 18.04 安装vsftpd"></a>ubuntu 18.04 安装vsftpd</h1><ul>
+<li><p>apt update</p>
+</li>
+<li><p>apt install vsftpd</p>
+</li>
+<li><p>systemctl enable vsftpd</p>
+</li>
+<li><p>systemctl start vsftpd</p>
+</li>
+<li><p>netstat -antup | grep vsftpd</p>
+</li>
+<li><p>useradd david -m</p>
+</li>
+<li><p>passwd david</p>
+</li>
+<li><p>mkdir /ftp</p>
+</li>
+<li><p>chown -R david:david /ftp</p>
+</li>
+</ul>
+<p><em>#vim /etc/vsftpd.conf</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable&#x3D;NO</span><br><span class="line">local_enable&#x3D;YES</span><br><span class="line">write_enable&#x3D;YES</span><br><span class="line">chroot_local_user&#x3D;YES</span><br><span class="line">chroot_list_enable&#x3D;YES</span><br><span class="line">chroot_list_file&#x3D;&#x2F;etc&#x2F;vsftpd.chroot_list</span><br><span class="line">listen&#x3D;YES</span><br><span class="line">#listen_ipv6&#x3D;YES</span><br><span class="line"></span><br><span class="line">local_root&#x3D;&#x2F;ftp</span><br><span class="line">allow_writeable_chroot&#x3D;YES</span><br><span class="line">pasv_enable&#x3D;YES</span><br><span class="line">pasv_address&#x3D;192.144.237.214 #请修改为您的 Linux 云服务器公网 IP</span><br><span class="line">pasv_min_port&#x3D;40000</span><br><span class="line">pasv_max_port&#x3D;45000</span><br></pre></td></tr></table></figure>
+
+<p><em>#vim /etc/vsftpd.chroot_list</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">david</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>systemctl restart vsftpd</li>
+</ul>
+<h1 id="ubuntu-18-04安装hexo"><a href="#ubuntu-18-04安装hexo" class="headerlink" title="ubuntu 18.04安装hexo"></a>ubuntu 18.04安装hexo</h1><p><em>升级npm</em></p>
+<ul>
+<li><p>sudo npm install -g npm</p>
+</li>
+<li><p>sudo npm install hexo-cli -g</p>
+</li>
+<li><p>cd /usr/bin</p>
+</li>
+<li><p>sudo ln -s /usr/local/node/bin/hexo hexo</p>
+</li>
+<li><p>hexo -v</p>
+</li>
+<li><p>sudo ufw allow 4000/tcp</p>
+</li>
+</ul>
+<h1 id="ubuntu18-04-安装owncloud"><a href="#ubuntu18-04-安装owncloud" class="headerlink" title="ubuntu18.04 安装owncloud"></a>ubuntu18.04 安装owncloud</h1><hr>
+<p><em>installing Mysql</em></p>
+<ul>
+<li><p>apt update</p>
+</li>
+<li><p>apt install apache2 libapache2-mod-php7.2 openssl php-imagick php7.2-common php7.2-curl php7.2-gd php7.2-imap php7.2-intl php7.2-json php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-pgsql php-smbclient php-ssh2 php7.2-sqlite3 php7.2-xml php7.2-zip</p>
+</li>
+</ul>
+<p><em>查看apache2 是否安装</em><br><em>#dpkg -l apache2</em><br><img src="http://101.201.197.193/images/2020/12/23/-2020-12-23-9.07.40.png" alt="Alt text"></p>
+<p><em>启动apache2 ，以及开机启动</em></p>
+<ul>
+<li>systemctl start apache2</li>
+<li>systemctl enable apache2</li>
+</ul>
+<p><em>安装Mariadb</em></p>
+<ul>
+<li>apt install mariadb-server</li>
+<li>mysql_secure_installation<ul>
+<li>CREATE DATABASE linuxidc_owdb;</li>
+<li>GRANT ALL ON linuxidc_owdb.* TO ‘linuxidc_owuser’@’localhost’ IDENTIFIED BY’v’;</li>
+<li>FLUSH PRIVILEGES;</li>
+<li>EXIT</li>
+</ul>
+</li>
+<li>unzip owncloud-10.4.0.zip -d /var/www</li>
+</ul>
+<p><em># vim /etc/apache2/conf-available/owncloud.conf</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Alias &#x2F;owncloud &quot;&#x2F;var&#x2F;www&#x2F;owncloud&quot;</span><br><span class="line">  </span><br><span class="line">&lt;Directory &#x2F;var&#x2F;www&#x2F;owncloud&gt;</span><br><span class="line">Options +FollowSymlinks</span><br><span class="line">AllowOverride ALL</span><br><span class="line"></span><br><span class="line">&lt;IfModule mod_dav.c&gt;</span><br><span class="line">Dav off</span><br><span class="line">&lt;&#x2F;IfModule&gt;</span><br><span class="line"></span><br><span class="line">SetEnv HOME &#x2F;var&#x2F;www&#x2F;owncloud</span><br><span class="line">SetEnv HTTP_HOME &#x2F;var&#x2F;www&#x2F;owncloud</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>a2enconf owncloud</p>
+</li>
+<li><p>a2enmod rewrite</p>
+</li>
+<li><p>a2enmod headers</p>
+</li>
+<li><p>a2enmod env</p>
+</li>
+<li><p>a2enmod dir</p>
+</li>
+<li><p>a2enmod mime</p>
+</li>
+<li><p>systemctl restart apache2</p>
+</li>
+<li><p>cd /var/www/owncloud</p>
+</li>
+<li><p>mkdir data</p>
+</li>
+<li><p>chown -R www-data:www-data data</p>
+</li>
+<li><p>chown -R www-data:www-data config</p>
+</li>
+<li><p>chown -R www-data:www-data apps</p>
+</li>
+</ul>
+<h1 id="彻底卸载mysql"><a href="#彻底卸载mysql" class="headerlink" title="彻底卸载mysql"></a>彻底卸载mysql</h1><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- dpkg --list | grep mariadb-server</span><br><span class="line">- apt-get remove --purge mariadb-common</span><br><span class="line">- apt-get remove --purge php7.2-mysql</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装Chevereto"><a href="#安装Chevereto" class="headerlink" title="安装Chevereto"></a>安装Chevereto</h1><hr>
+<ul>
+<li><p>apt-get install mariadb-server mariadb-client</p>
+</li>
+<li><p>systemctl start mysql</p>
+</li>
+<li><p>systemctl enable mysql</p>
+</li>
+<li><p>mysql_secure_installation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- CREATE DATABASE cheveretodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</span><br><span class="line">- GRANT ALL PRIVILEGES ON cheveretodb.* TO &#39;chevereto&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;</span><br><span class="line">- FLUSH PRIVILEGES;</span><br><span class="line">- \q</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tar -xvzf Chevereto-Free.tar.gz</p>
+</li>
+<li><p>mv Chevereto-Free.tar.gz /var/www/html/chevereto</p>
+</li>
+<li><p>cd /var/www/html/chevereto</p>
+</li>
+<li><p>vim app/settings.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$config[&#39;db_name&#39;] &#x3D; &#39;cheveretodb&#39;;</span><br><span class="line">$config[&#39;db_user&#39;] &#x3D; &#39;chevereto&#39;;</span><br><span class="line">$config[&#39;db_pass&#39;] &#x3D; &#39;password&#39;;</span><br><span class="line">$config[&#39;admin_password&#39;] &#x3D; &#39;password&#39;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>chown -R www-data:www-data /var/www/html/chevereto</p>
+</li>
+<li><p>chmod -R 777 /var/www/html/chevereto</p>
+</li>
+<li><p>vim /etc/apache2/sites-available/chevereto.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">ServerAdmin admin@example.com</span><br><span class="line">DocumentRoot &#x2F;var&#x2F;www&#x2F;html&#x2F;chevereto&#x2F;</span><br><span class="line">ServerName example.com</span><br><span class="line">&lt;Directory &#x2F;var&#x2F;www&#x2F;html&#x2F;chevereto&#x2F;&gt;</span><br><span class="line">Options FollowSymLinks</span><br><span class="line">DirectoryIndex index.php</span><br><span class="line">AllowOverride All</span><br><span class="line">Order allow,deny</span><br><span class="line">allow from all</span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br><span class="line">ErrorLog &#x2F;var&#x2F;log&#x2F;apache2&#x2F;chevereto-error_log</span><br><span class="line">CustomLog &#x2F;var&#x2F;log&#x2F;apache2&#x2F;chevereto-access_log common</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>a2ensite chevereto</p>
+</li>
+<li><p>systemctl restart apache2</p>
+</li>
+</ul>
+<p><strong><em>配置防火墙</em></strong></p>
+<ul>
+<li>ufw enable</li>
+<li>ufw allow 80</li>
+<li>ufw reload</li>
+</ul>
+<h1 id="ubuntu18-04-安裝zsh"><a href="#ubuntu18-04-安裝zsh" class="headerlink" title="ubuntu18.04 安裝zsh"></a>ubuntu18.04 安裝zsh</h1><p><strong><em>1、手动修改ubuntu默认的shell</em></strong></p>
+<ul>
+<li>sudo vim /etc/passwd/<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">原来：li:x:1000:1000:li,,,:&#x2F;home&#x2F;li:&#x2F;bin&#x2F;bash</span><br><span class="line">更改后：li:x:1000:1000:li,,,:&#x2F;home&#x2F;li:&#x2F;usr&#x2F;bin&#x2F;zsh</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/20/ubuntu18.04/" data-id="ckk5k60qr0007v1wi6b0d59s4" data-title="ubuntu 18.04" class="article-share-link">Share</a>
       
       
       
@@ -164,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/20/linux/" data-id="ckk5avhhw00054pwi61fi0qnk" data-title="linux美化" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/20/linux/" data-id="ckk5k60qq0005v1wi2fjnbonc" data-title="linux美化" class="article-share-link">Share</a>
       
       
       
@@ -404,11 +640,11 @@
 </ul>
 <p><strong><em>本地同步到远程</em></strong></p>
 <ul>
-<li>rsync -avz -e ‘ssh -p 10086’ /ftp/ <a href="mailto:&#x64;&#97;&#x76;&#105;&#x64;&#x40;&#x31;&#48;&#x31;&#x2e;&#x32;&#48;&#49;&#x2e;&#49;&#x39;&#x37;&#x2e;&#49;&#x39;&#x33;">&#x64;&#97;&#x76;&#105;&#x64;&#x40;&#x31;&#48;&#x31;&#x2e;&#x32;&#48;&#49;&#x2e;&#49;&#x39;&#x37;&#x2e;&#49;&#x39;&#x33;</a>:~/download</li>
+<li>rsync -avz -e ‘ssh -p 10086’ /ftp/ <a href="mailto:&#100;&#x61;&#118;&#105;&#x64;&#64;&#x31;&#48;&#x31;&#x2e;&#50;&#x30;&#49;&#x2e;&#49;&#57;&#55;&#x2e;&#49;&#x39;&#x33;">&#100;&#x61;&#118;&#105;&#x64;&#64;&#x31;&#48;&#x31;&#x2e;&#50;&#x30;&#49;&#x2e;&#49;&#57;&#55;&#x2e;&#49;&#x39;&#x33;</a>:~/download</li>
 </ul>
 <p><strong><em>远程centos7同步到本地ubuntu18.04</em></strong></p>
 <ul>
-<li>rsync -avz -e “ssh -p 10086” <a href="mailto:&#x64;&#97;&#118;&#x69;&#100;&#x40;&#49;&#48;&#49;&#x2e;&#50;&#x30;&#x31;&#x2e;&#49;&#57;&#x37;&#46;&#49;&#x39;&#51;">&#x64;&#97;&#118;&#x69;&#100;&#x40;&#49;&#48;&#49;&#x2e;&#50;&#x30;&#x31;&#x2e;&#49;&#57;&#x37;&#46;&#49;&#x39;&#51;</a>:~/download/ ~/download/ </li>
+<li>rsync -avz -e “ssh -p 10086” <a href="mailto:&#100;&#x61;&#x76;&#105;&#x64;&#x40;&#x31;&#48;&#x31;&#46;&#x32;&#48;&#x31;&#x2e;&#x31;&#x39;&#x37;&#x2e;&#x31;&#x39;&#x33;">&#100;&#x61;&#x76;&#105;&#x64;&#x40;&#x31;&#48;&#x31;&#46;&#x32;&#48;&#x31;&#x2e;&#x31;&#x39;&#x37;&#x2e;&#x31;&#x39;&#x33;</a>:~/download/ ~/download/ </li>
 </ul>
 <h1 id="centos7-安装python3"><a href="#centos7-安装python3" class="headerlink" title="centos7 安装python3"></a>centos7 安装python3</h1><hr>
 <ul>
@@ -428,209 +664,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/18/centos7/" data-id="ckk5avhhr00014pwi3toa81v5" data-title="centos7" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ubuntu18.04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/10/ubuntu18.04/" class="article-date">
-  <time class="dt-published" datetime="2021-01-10T09:29:31.592Z" itemprop="datePublished">2021-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/10/ubuntu18.04/">ubuntu 18.04</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Ubuntu-18-04-开启root登录"><a href="#Ubuntu-18-04-开启root登录" class="headerlink" title="Ubuntu 18.04 开启root登录"></a>Ubuntu 18.04 开启root登录</h1><hr>
-<p><em>#sudo vim /etc/ssh/sshd_config</em><br><img src="http://101.201.197.193/images/2020/12/25/-2020-12-25-10.48.16.png" alt="ubuntu18.04/root"></p>
-<ul>
-<li>sudo systemctl restart ssh</li>
-</ul>
-<p><em>删除ubuntu用户</em></p>
-<ul>
-<li>deluser ubuntu –remove-home</li>
-</ul>
-<h1 id="ubuntu-18-04-修改默认ssh端口"><a href="#ubuntu-18-04-修改默认ssh端口" class="headerlink" title="ubuntu 18.04 修改默认ssh端口"></a>ubuntu 18.04 修改默认ssh端口</h1><p><em>#vim /etc/ssh/sshd_config</em><br><a target="_blank" rel="noopener" href="http://101.201.197.193/image/GTS"><img src="http://101.201.197.193/images/2020/12/25/-2020-12-25-10.51.50.png" alt="ubuntu18.04 /port"></a></p>
-<p><em>重启ssh</em></p>
-<ul>
-<li>systemctl restart ssh</li>
-</ul>
-<p><em>ufw配置</em></p>
-<ul>
-<li>ufw status verbose</li>
-<li>ufw enable</li>
-<li>ufw allow 22/tcp</li>
-<li>ufw allow 10086/tcp</li>
-<li>ufw status numbered</li>
-<li>ufw delete 2</li>
-<li>ufw disable</li>
-</ul>
-<h1 id="ubuntu-18-04-安装vsftpd"><a href="#ubuntu-18-04-安装vsftpd" class="headerlink" title="ubuntu 18.04 安装vsftpd"></a>ubuntu 18.04 安装vsftpd</h1><ul>
-<li><p>apt update</p>
-</li>
-<li><p>apt install vsftpd</p>
-</li>
-<li><p>systemctl enable vsftpd</p>
-</li>
-<li><p>systemctl start vsftpd</p>
-</li>
-<li><p>netstat -antup | grep vsftpd</p>
-</li>
-<li><p>useradd david -m</p>
-</li>
-<li><p>passwd david</p>
-</li>
-<li><p>mkdir /ftp</p>
-</li>
-<li><p>chown -R david:david /ftp</p>
-</li>
-</ul>
-<p><em>#vim /etc/vsftpd.conf</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable&#x3D;NO</span><br><span class="line">local_enable&#x3D;YES</span><br><span class="line">write_enable&#x3D;YES</span><br><span class="line">chroot_local_user&#x3D;YES</span><br><span class="line">chroot_list_enable&#x3D;YES</span><br><span class="line">chroot_list_file&#x3D;&#x2F;etc&#x2F;vsftpd.chroot_list</span><br><span class="line">listen&#x3D;YES</span><br><span class="line">#listen_ipv6&#x3D;YES</span><br><span class="line"></span><br><span class="line">local_root&#x3D;&#x2F;ftp</span><br><span class="line">allow_writeable_chroot&#x3D;YES</span><br><span class="line">pasv_enable&#x3D;YES</span><br><span class="line">pasv_address&#x3D;192.144.237.214 #请修改为您的 Linux 云服务器公网 IP</span><br><span class="line">pasv_min_port&#x3D;40000</span><br><span class="line">pasv_max_port&#x3D;45000</span><br></pre></td></tr></table></figure>
-
-<p><em>#vim /etc/vsftpd.chroot_list</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">david</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>systemctl restart vsftpd</li>
-</ul>
-<h1 id="ubuntu-18-04安装hexo"><a href="#ubuntu-18-04安装hexo" class="headerlink" title="ubuntu 18.04安装hexo"></a>ubuntu 18.04安装hexo</h1><p><em>升级npm</em></p>
-<ul>
-<li><p>sudo npm install -g npm</p>
-</li>
-<li><p>sudo npm install hexo-cli -g</p>
-</li>
-<li><p>cd /usr/bin</p>
-</li>
-<li><p>sudo ln -s /usr/local/node/bin/hexo hexo</p>
-</li>
-<li><p>hexo -v</p>
-</li>
-<li><p>sudo ufw allow 4000/tcp</p>
-</li>
-</ul>
-<h1 id="ubuntu18-04-安装owncloud"><a href="#ubuntu18-04-安装owncloud" class="headerlink" title="ubuntu18.04 安装owncloud"></a>ubuntu18.04 安装owncloud</h1><hr>
-<p><em>installing Mysql</em></p>
-<ul>
-<li><p>apt update</p>
-</li>
-<li><p>apt install apache2 libapache2-mod-php7.2 openssl php-imagick php7.2-common php7.2-curl php7.2-gd php7.2-imap php7.2-intl php7.2-json php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-pgsql php-smbclient php-ssh2 php7.2-sqlite3 php7.2-xml php7.2-zip</p>
-</li>
-</ul>
-<p><em>查看apache2 是否安装</em><br><em>#dpkg -l apache2</em><br><img src="http://101.201.197.193/images/2020/12/23/-2020-12-23-9.07.40.png" alt="Alt text"></p>
-<p><em>启动apache2 ，以及开机启动</em></p>
-<ul>
-<li>systemctl start apache2</li>
-<li>systemctl enable apache2</li>
-</ul>
-<p><em>安装Mariadb</em></p>
-<ul>
-<li>apt install mariadb-server</li>
-<li>mysql_secure_installation<ul>
-<li>CREATE DATABASE linuxidc_owdb;</li>
-<li>GRANT ALL ON linuxidc_owdb.* TO ‘linuxidc_owuser’@’localhost’ IDENTIFIED BY’v’;</li>
-<li>FLUSH PRIVILEGES;</li>
-<li>EXIT</li>
-</ul>
-</li>
-<li>unzip owncloud-10.4.0.zip -d /var/www</li>
-</ul>
-<p><em># vim /etc/apache2/conf-available/owncloud.conf</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Alias &#x2F;owncloud &quot;&#x2F;var&#x2F;www&#x2F;owncloud&quot;</span><br><span class="line">  </span><br><span class="line">&lt;Directory &#x2F;var&#x2F;www&#x2F;owncloud&gt;</span><br><span class="line">Options +FollowSymlinks</span><br><span class="line">AllowOverride ALL</span><br><span class="line"></span><br><span class="line">&lt;IfModule mod_dav.c&gt;</span><br><span class="line">Dav off</span><br><span class="line">&lt;&#x2F;IfModule&gt;</span><br><span class="line"></span><br><span class="line">SetEnv HOME &#x2F;var&#x2F;www&#x2F;owncloud</span><br><span class="line">SetEnv HTTP_HOME &#x2F;var&#x2F;www&#x2F;owncloud</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>a2enconf owncloud</p>
-</li>
-<li><p>a2enmod rewrite</p>
-</li>
-<li><p>a2enmod headers</p>
-</li>
-<li><p>a2enmod env</p>
-</li>
-<li><p>a2enmod dir</p>
-</li>
-<li><p>a2enmod mime</p>
-</li>
-<li><p>systemctl restart apache2</p>
-</li>
-<li><p>cd /var/www/owncloud</p>
-</li>
-<li><p>mkdir data</p>
-</li>
-<li><p>chown -R www-data:www-data data</p>
-</li>
-<li><p>chown -R www-data:www-data config</p>
-</li>
-<li><p>chown -R www-data:www-data apps</p>
-</li>
-</ul>
-<h1 id="彻底卸载mysql"><a href="#彻底卸载mysql" class="headerlink" title="彻底卸载mysql"></a>彻底卸载mysql</h1><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- dpkg --list | grep mariadb-server</span><br><span class="line">- apt-get remove --purge mariadb-common</span><br><span class="line">- apt-get remove --purge php7.2-mysql</span><br></pre></td></tr></table></figure>
-
-<h1 id="安装Chevereto"><a href="#安装Chevereto" class="headerlink" title="安装Chevereto"></a>安装Chevereto</h1><hr>
-<ul>
-<li><p>apt-get install mariadb-server mariadb-client</p>
-</li>
-<li><p>systemctl start mysql</p>
-</li>
-<li><p>systemctl enable mysql</p>
-</li>
-<li><p>mysql_secure_installation</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- CREATE DATABASE cheveretodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</span><br><span class="line">- GRANT ALL PRIVILEGES ON cheveretodb.* TO &#39;chevereto&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;</span><br><span class="line">- FLUSH PRIVILEGES;</span><br><span class="line">- \q</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>tar -xvzf Chevereto-Free.tar.gz</p>
-</li>
-<li><p>mv Chevereto-Free.tar.gz /var/www/html/chevereto</p>
-</li>
-<li><p>cd /var/www/html/chevereto</p>
-</li>
-<li><p>vim app/settings.php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$config[&#39;db_name&#39;] &#x3D; &#39;cheveretodb&#39;;</span><br><span class="line">$config[&#39;db_user&#39;] &#x3D; &#39;chevereto&#39;;</span><br><span class="line">$config[&#39;db_pass&#39;] &#x3D; &#39;password&#39;;</span><br><span class="line">$config[&#39;admin_password&#39;] &#x3D; &#39;password&#39;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>chown -R www-data:www-data /var/www/html/chevereto</p>
-</li>
-<li><p>chmod -R 777 /var/www/html/chevereto</p>
-</li>
-<li><p>vim /etc/apache2/sites-available/chevereto.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">ServerAdmin admin@example.com</span><br><span class="line">DocumentRoot &#x2F;var&#x2F;www&#x2F;html&#x2F;chevereto&#x2F;</span><br><span class="line">ServerName example.com</span><br><span class="line">&lt;Directory &#x2F;var&#x2F;www&#x2F;html&#x2F;chevereto&#x2F;&gt;</span><br><span class="line">Options FollowSymLinks</span><br><span class="line">DirectoryIndex index.php</span><br><span class="line">AllowOverride All</span><br><span class="line">Order allow,deny</span><br><span class="line">allow from all</span><br><span class="line">&lt;&#x2F;Directory&gt;</span><br><span class="line">ErrorLog &#x2F;var&#x2F;log&#x2F;apache2&#x2F;chevereto-error_log</span><br><span class="line">CustomLog &#x2F;var&#x2F;log&#x2F;apache2&#x2F;chevereto-access_log common</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>a2ensite chevereto</p>
-</li>
-<li><p>systemctl restart apache2</p>
-</li>
-</ul>
-<p><strong><em>配置防火墙</em></strong></p>
-<ul>
-<li>ufw enable</li>
-<li>ufw allow 80</li>
-<li>ufw reload</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/10/ubuntu18.04/" data-id="ckk5avhhz00074pwihzzvdwhn" data-title="ubuntu 18.04" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/18/centos7/" data-id="ckk5k60qk0001v1wices2b8pe" data-title="centos7" class="article-share-link">Share</a>
       
       
       
@@ -695,7 +729,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/07/archlinux/" data-id="ckk5avhhk00004pwi57qzc13k" data-title="archlinux" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/07/archlinux/" data-id="ckk5k60qe0000v1wier83drmn" data-title="archlinux" class="article-share-link">Share</a>
       
       
       
@@ -816,7 +850,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/05/mac/" data-id="ckk5avhhx00064pwi79or4wy1" data-title="mac" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/05/mac/" data-id="ckk5k60qq0006v1wi46wz6yrh" data-title="mac" class="article-share-link">Share</a>
       
       
       
@@ -861,7 +895,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/25/git/" data-id="ckk5avhht00024pwi9ovi7iu1" data-title="git" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/25/git/" data-id="ckk5k60ql0002v1wibhor4ed2" data-title="git" class="article-share-link">Share</a>
       
       
       
@@ -912,7 +946,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/13/hello-world/" data-id="ckk5avhhu00034pwihx7bcyep" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/13/hello-world/" data-id="ckk5k60qm0003v1wi032uhw4f" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -959,15 +993,15 @@
           </li>
         
           <li>
+            <a href="/2021/01/20/ubuntu18.04/">ubuntu 18.04</a>
+          </li>
+        
+          <li>
             <a href="/2021/01/20/linux/">linux美化</a>
           </li>
         
           <li>
             <a href="/2021/01/18/centos7/">centos7</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/10/ubuntu18.04/">ubuntu 18.04</a>
           </li>
         
           <li>
