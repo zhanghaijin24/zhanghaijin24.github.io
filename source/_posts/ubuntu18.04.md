@@ -200,3 +200,12 @@ CustomLog /var/log/apache2/chevereto-access_log common
 - ufw enable
 - ufw allow 80
 - ufw reload
+
+# ubuntu18.04 安裝zsh
+***1、手动修改ubuntu默认的shell***
+- sudo vim /etc/passwd/
+```
+原来：li:x:1000:1000:li,,,:/home/li:/bin/bash
+更改后：li:x:1000:1000:li,,,:/home/li:/usr/bin/zsh
+```
+
