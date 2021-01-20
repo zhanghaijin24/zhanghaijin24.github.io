@@ -9,7 +9,7 @@
   <meta name="description" content="selinux配置 setenforce 0 getenforce  centos7 修改默认ssh端口&#x2F;配置端口为10086  sudo vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config  sudo yum -y install policycoreutils-python  sudo semanage port -a -t ssh_port_t -p tcp 10086  systemctl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7">
-<meta property="og:url" content="http://example.com/2021/01/15/centos7/index.html">
+<meta property="og:url" content="http://example.com/2021/01/18/centos7/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="selinux配置 setenforce 0 getenforce  centos7 修改默认ssh端口&#x2F;配置端口为10086  sudo vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config  sudo yum -y install policycoreutils-python  sudo semanage port -a -t ssh_port_t -p tcp 10086  systemctl">
 <meta property="og:locale" content="en_US">
@@ -17,8 +17,8 @@
 <meta property="og:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.03.28.png">
 <meta property="og:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.22.56.png">
 <meta property="og:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-11.31.46.png">
-<meta property="article:published_time" content="2021-01-14T16:20:14.323Z">
-<meta property="article:modified_time" content="2021-01-14T16:20:14.323Z">
+<meta property="article:published_time" content="2021-01-18T01:55:22.869Z">
+<meta property="article:modified_time" content="2021-01-18T01:55:22.869Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://101.201.197.193/images/2020/12/24/-2020-12-24-10.46.32.png">
@@ -80,8 +80,8 @@
       <div class="outer">
         <section id="main"><article id="post-centos7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/01/15/centos7/" class="article-date">
-  <time class="dt-published" datetime="2021-01-14T16:20:14.323Z" itemprop="datePublished">2021-01-15</time>
+    <a href="/2021/01/18/centos7/" class="article-date">
+  <time class="dt-published" datetime="2021-01-18T01:55:22.869Z" itemprop="datePublished">2021-01-18</time>
 </a>
     
   </div>
@@ -302,17 +302,35 @@
 
 <h1 id="Rsync简单详解"><a href="#Rsync简单详解" class="headerlink" title="Rsync简单详解"></a>Rsync简单详解</h1><ul>
 <li>yum -y install rsync</li>
-<li>rsync -zvz zhanghaijin24.github.io/ test/</li>
+<li>rsync -avz zhanghaijin24.github.io/ test/</li>
 </ul>
-<p><strong><em>远程同步文件</em></strong></p>
+<p><strong><em>本地同步到远程</em></strong></p>
 <ul>
-<li>rsync -avz -e ‘ssh -p 10086’ /ftp/ <a href="mailto:&#x64;&#97;&#118;&#105;&#x64;&#64;&#x31;&#48;&#x31;&#x2e;&#50;&#x30;&#x31;&#46;&#x31;&#x39;&#55;&#x2e;&#x31;&#x39;&#x33;">&#x64;&#97;&#118;&#105;&#x64;&#64;&#x31;&#48;&#x31;&#x2e;&#50;&#x30;&#x31;&#46;&#x31;&#x39;&#55;&#x2e;&#x31;&#x39;&#x33;</a>:~/text</li>
+<li>rsync -avz -e ‘ssh -p 10086’ /ftp/ <a href="mailto:&#x64;&#97;&#x76;&#105;&#x64;&#x40;&#x31;&#48;&#x31;&#x2e;&#x32;&#48;&#49;&#x2e;&#49;&#x39;&#x37;&#x2e;&#49;&#x39;&#x33;">&#x64;&#97;&#x76;&#105;&#x64;&#x40;&#x31;&#48;&#x31;&#x2e;&#x32;&#48;&#49;&#x2e;&#49;&#x39;&#x37;&#x2e;&#49;&#x39;&#x33;</a>:~/download</li>
+</ul>
+<p><strong><em>远程centos7同步到本地ubuntu18.04</em></strong></p>
+<ul>
+<li>rsync -avz -e “ssh -p 10086” <a href="mailto:&#x64;&#97;&#118;&#x69;&#100;&#x40;&#49;&#48;&#49;&#x2e;&#50;&#x30;&#x31;&#x2e;&#49;&#57;&#x37;&#46;&#49;&#x39;&#51;">&#x64;&#97;&#118;&#x69;&#100;&#x40;&#49;&#48;&#49;&#x2e;&#50;&#x30;&#x31;&#x2e;&#49;&#57;&#x37;&#46;&#49;&#x39;&#51;</a>:~/download/ ~/download/ </li>
+</ul>
+<h1 id="centos7-安装python3"><a href="#centos7-安装python3" class="headerlink" title="centos7 安装python3"></a>centos7 安装python3</h1><hr>
+<ul>
+<li>sudo yum install python3</li>
+<li>sudo pip3 install pynvim</li>
+</ul>
+<p><strong><em>neovim init.vim配置</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let g:python3_host_prog&#x3D;&#39;&#x2F;usr&#x2F;bin&#x2F;python3</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="centos7-配置neovim"><a href="#centos7-配置neovim" class="headerlink" title="centos7 配置neovim"></a>centos7 配置neovim</h1><hr>
+<p><strong>* coc.snippets安装以及配置*</strong></p>
+<ul>
+<li>CocInstall coc-snippets</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/15/centos7/" data-id="ckjx2d8em000139wibc8t5783" data-title="centos7" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/18/centos7/" data-id="ckk5avhhr00014pwi3toa81v5" data-title="centos7" class="article-share-link">Share</a>
       
       
       
@@ -321,6 +339,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2021/01/20/linux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux美化
+        
+      </div>
+    </a>
   
   
     <a href="/2021/01/10/ubuntu18.04/" id="article-nav-older" class="article-nav-link-wrap">
@@ -363,7 +390,15 @@
       <ul>
         
           <li>
-            <a href="/2021/01/15/centos7/">centos7</a>
+            <a href="/2021/01/20/hongji/">DELL Inspiron i5 5000 Series安装系统</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/20/linux/">linux美化</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/18/centos7/">centos7</a>
           </li>
         
           <li>
@@ -372,14 +407,6 @@
         
           <li>
             <a href="/2021/01/07/archlinux/">archlinux</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/05/mac/">mac</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/25/git/">git</a>
           </li>
         
       </ul>
