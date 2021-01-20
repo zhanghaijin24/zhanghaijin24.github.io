@@ -50,3 +50,16 @@ cd zhanghaijin24.github.io
 sudo npm install
 udo npm install hexo-deployer-git
 ```
+***推送到github基本操作***
+```
+git add .
+git commit -m "hexo"
+git push origin hexo
+```
+***git基本操作***
+```
+hexo clean
+hexo g
+hexo d
+```
+
