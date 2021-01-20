@@ -26,6 +26,7 @@ title: ubuntu 18.04
 - ufw allow 10086/tcp
 - ufw status numbered
 - ufw delete 2
+- ufw disable
 
 # ubuntu 18.04 安装vsftpd
 
@@ -137,3 +138,65 @@ SetEnv HTTP_HOME /var/www/owncloud
 - chown -R www-data:www-data config
 - chown -R www-data:www-data apps
 
+# 彻底卸载mysql
+---
+```
+- dpkg --list | grep mariadb-server
+- apt-get remove --purge mariadb-common
+- apt-get remove --purge php7.2-mysql
+```
+
+# 安装Chevereto
+---
+- apt-get install mariadb-server mariadb-client
+- systemctl start mysql
+- systemctl enable mysql
+
+- mysql_secure_installation
+```
+- CREATE DATABASE cheveretodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+- GRANT ALL PRIVILEGES ON cheveretodb.* TO 'chevereto'@'localhost' IDENTIFIED BY 'password';
+- FLUSH PRIVILEGES;
+- \q
+```
+
+- tar -xvzf Chevereto-Free.tar.gz
+- mv Chevereto-Free.tar.gz /var/www/html/chevereto
+- cd /var/www/html/chevereto
+- vim app/settings.php
+```
+<?php
+$config['db_name'] = 'cheveretodb';
+$config['db_user'] = 'chevereto';
+$config['db_pass'] = 'password';
+$config['admin_password'] = 'password';
+```
+
+- chown -R www-data:www-data /var/www/html/chevereto
+- chmod -R 777 /var/www/html/chevereto
+
+- vim /etc/apache2/sites-available/chevereto.conf
+```
+<VirtualHost *:80>
+ServerAdmin admin@example.com
+DocumentRoot /var/www/html/chevereto/
+ServerName example.com
+<Directory /var/www/html/chevereto/>
+Options FollowSymLinks
+DirectoryIndex index.php
+AllowOverride All
+Order allow,deny
+allow from all
+</Directory>
+ErrorLog /var/log/apache2/chevereto-error_log
+CustomLog /var/log/apache2/chevereto-access_log common
+</VirtualHost>
+```
+
+- a2ensite chevereto
+- systemctl restart apache2
+
+***配置防火墙***
+- ufw enable
+- ufw allow 80
+- ufw reload

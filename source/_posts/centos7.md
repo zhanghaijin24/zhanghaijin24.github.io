@@ -226,3 +226,28 @@ Require all granted
 ```
 export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules"     -E ".oh-my-zsh" -E ".npm" . /etc /home'
 ```
+
+# Rsync简单详解
+- yum -y install rsync
+- rsync -avz zhanghaijin24.github.io/ test/
+
+***本地同步到远程***
+- rsync -avz -e 'ssh -p 10086' /ftp/ david@101.201.197.193:~/download
+
+***远程centos7同步到本地ubuntu18.04***
+- rsync -avz -e "ssh -p 10086" david@101.201.197.193:~/download/ ~/download/ 
+
+# centos7 安装python3
+---
+- sudo yum install python3
+- sudo pip3 install pynvim
+***neovim init.vim配置***
+```
+let g:python3_host_prog='/usr/bin/python3
+```
+
+
+# centos7 配置neovim
+---
+*** coc.snippets安装以及配置***
+- CocInstall coc-snippets
