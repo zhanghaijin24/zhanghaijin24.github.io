@@ -1,8 +1,9 @@
 ---
----title: DELL Inspiron i5 5000 Series安装系统
+title: hongji 4750G
 ---
 
-# F2进行bios设置
+# DELL Inspiron i5 5000 Series安装系统
+***F2进行bios设置****
 ***secureboot***
 - Disabled
 ***General/Advanced Boot Options***
@@ -34,6 +35,23 @@
 - ![A38BD449-414F-43C8-9276-D3F47021AF7E.jpg](http://101.201.197.193/images/2021/01/20/A38BD449-414F-43C8-9276-D3F47021AF7E.jpg)
 
 
+***ubuntu18.04 換源***
+- sudo vim /etc/apt/sources.list
+```
+# 阿里源
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+
+```
+- sudo apt update
 
 
 # ubuntu18.04安裝hexo
@@ -77,6 +95,46 @@ hexo g
 hexo d
 ```
 
+***從github更新遠程倉庫到本地***
+```
+git fetch origin hexo:tmp
+git diff tmp
+git merge tmp
+git branch -d tmp
+```
+
 # Rsync 簡單詳解
 ***遠程centos7同步到本地ubuntu18.04***
 - rsync -avz -e 'ssh -p 10086' david@101.201.197.193:~/download/ ~/Downloads
+
+# ubuntu18.04 B站看不了視頻
+```
+sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+sudo apt update
+sudo apt install adobe-flashplugin browser-plugin-freshplayer-pepperflash
+```
+
+# 安裝以及配置fzf
+---
+- git clone https://github.com/junegunn/fzf.git ~/.fzf
+- ~/.fzf/install
+
+***在github下載fd-musl_8.2.1_amd64.deb***
+- sudo dpkg -i fd-musl_8.2.1_amd64.deb
+
+***.zshrc配置fzf***
+- nvim .zshrc
+```
+export FZF_DEFAULT_COMMAND="fd --hidden --exclude={.git,.idea,.sass-cache,      node_modules,build,.oh-my-zsh,.npm} --type f"                             
+ 
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlig      ht -O ansi {} || cat {}) 2> /dev/null | head -500'"
+```
+
+# ubuntu18.04 nvim 安裝系統剪貼板
+---
+- sudo apt install xclip
+```
+let mapleader=" "
+map <leader>c "+y
+map <leader>v "+gp  
+```
