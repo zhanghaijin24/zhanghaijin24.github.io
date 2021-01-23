@@ -186,9 +186,14 @@ sudo apachectl -S
 輸出的結果如下圖：
 ![707-2-apachectl-S.png](http://101.201.197.193/images/2021/01/23/707-2-apachectl-S.png)
 
-这条命令会打印出**apache**的所有配置等具体信息。其中最主要的就是**VirtualHost configuration:**，它给出了apache当前使用的配置文件，而**apache**的所有配置信息都是在这个文件里定义的。
-　　这里需要注意的是配置文件的路径是：**/etc/apache2/sites-enabled/000-default.conf**，而实际上，真正的配置文件是**/etc/apache2/sites-available/000-default.conf**。**/etc/apache2/sites-enabled**文件夹下的文件只是**/etc/apache2/sites-available/**下面文件的软连接而已。所以要修改配置，请务必修改**/etc/apache2/sites-available/**下面的文件，修改完成之后，可以先使用**sudo apache2ctl configtest**来确认配置文件语法正确，然后需要执行下面两条命令来使配置生效。
+这条命令会打印出 **apache** 的所有配置等具体信息。其中最主要的就是 **VirtualHost configuration:** ，它给出了apache当前使用的配置文件，而 **apache** 的所有配置信息都是在这个文件里定义的。
+　　这里需要注意的是配置文件的路径是：  **/etc/apache2/sites-enabled/000-default.conf** ，而实际上，真正的配置文件是   **/etc/apache2/sites-available/000-default.conf** .**/etc/apache2/sites-enabled** 文件夹下的文件只是 **/etc/apache2/sites-available/**  下面文件的软连接而已。所以要修改配置，请务必修改 **/etc/apache2/sites-available/**  下面的文件，修改完成之后，可以先使用  **sudo apache2ctl configtest**  来确认配置文件语法正确，然后需要执行下面两条命令来使配置生效。
 ```
 sudo a2ensite ××××.conf
 sudo systemctl restart apache2
+```
+
+# 安裝php7.2
+```
+sudo apt install  libapache2-mod-php7.2 openssl php-imagick php7.2-common php7.2-curl php7.2-gd php7.2-imap php7.2-intl php7.2-json php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-pgsql php-smbclient php-ssh2 php7.2-sqlite3 php7.2-xml php7.2-zip
 ```
