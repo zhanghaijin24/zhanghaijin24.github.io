@@ -172,3 +172,23 @@ mysql> FLUSH PRIVILEGES;
 ```
 mysql> \q
 ```
+
+# 安裝ubuntu18.04/apache2
+---
+```
+sudo apt update && sudo apt install apache2 -y
+```
+***配置apache2***
+```
+sudo apachectl -S
+
+```
+輸出的結果如下圖：
+![707-2-apachectl-S.png](http://101.201.197.193/images/2021/01/23/707-2-apachectl-S.png)
+
+这条命令会打印出*apache*的所有配置等具体信息。其中最主要的就是*VirtualHost configuration:*，它给出了apache当前使用的配置文件，而*apache*的所有配置信息都是在这个文件里定义的。
+　　这里需要注意的是配置文件的路径是：**/etc/apache2/sites-enabled/000-default.conf**，而实际上，真正的配置文件是**/etc/apache2/sites-available/000-default.conf**。***/etc/apache2/sites-enabled文件夹下的文件只是/etc/apache2/sites-available/***下面文件的软连接而已。所以要修改配置，请务必修改***/etc/apache2/sites-available/***下面的文件，修改完成之后，可以先使用***sudo apache2ctl configtest***来确认配置文件语法正确，然后需要执行下面两条命令来使配置生效。
+```
+sudo a2ensite ××××.conf
+sudo systemctl restart apache2
+```
