@@ -138,3 +138,37 @@ let mapleader=" "
 map <leader>c "+y
 map <leader>v "+gp  
 ```
+
+# 安裝ubuntu18.04/MySQL
+```
+sudo apt install mysql-server -y
+```
+
+***配置mysql***
+```
+sudo mysql_secure_installation
+```
+配置圖片如下
+[![707-3-mysql_secure_installation.png](http://101.201.197.193/images/2021/01/23/707-3-mysql_secure_installation.png)](http://101.201.197.193/image/X6Q)
+
+*首先*，登陸數據庫：
+```
+sudo mysql
+```
+*其次*，輸入下面命令查看當前的認證方式
+```
+ mysql> SELECT user,authentication_string,plugin,host FROM mysql.user;
+```
+[![707-4-mysql-authentication-method.png](http://101.201.197.193/images/2021/01/23/707-4-mysql-authentication-method.png)](http://101.201.197.193/image/biv)
+
+*再次*，依次輸入下面的命令修改用戶認證方式並更新設置：
+```
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+mysql> FLUSH PRIVILEGES;
+
+```
+
+輸入下面命令退出MySQL登錄
+```
+mysql> \q
+```
