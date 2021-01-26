@@ -231,3 +231,27 @@ upload_max_file_size = 100M
 重启apache
 - sudo systemctl restart apache2
 
+# 安装chevereto
+- tar -xvzf Chevereto-Free.tar.gz
+- sudo mv Chevereto-Free /var/www/chevereto
+- sudo chown -R www-data:www-data /var/www/chevereto
+- sudo chmod -R 777 /var/www/chevereto 
+***apache2/chevereto***
+sudo nvim /etc/apache2/sites-available/owncloud.conf
+```
+Alias /chevereto "/var/www/chevereto"
+  
+<Directory /var/www/chevereto>
+Options +FollowSymlinks
+AllowOverride ALL
+
+<IfModule mod_dav.c>
+Dav off
+</IfModule>
+
+SetEnv HOME /var/www/chevereto
+SetEnv HTTP_HOME /var/www/chevereto
+
+</Directory>
+
+```
