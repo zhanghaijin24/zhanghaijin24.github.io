@@ -197,3 +197,37 @@ sudo systemctl restart apache2
 ```
 sudo apt install  libapache2-mod-php7.2 openssl php-imagick php7.2-common php7.2-curl php7.2-gd php7.2-imap php7.2-intl php7.2-json php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-pgsql php-smbclient php-ssh2 php7.2-sqlite3 php7.2-xml php7.2-zip
 ```
+
+
+# ubuntu18.04 安装Apache
+- sudo apt install apache2
+***禁用apache目录列表***
+- sudo a2dismod autoindex
+***开启额外模块***
+- sudo a2enmod rewrite
+- sudo a2enmod headers
+- sudo a2enmod env
+- sudo a2enmod dir
+- sudo a2enmod mime
+***重启apache***
+- sudo systemctl restart apache2
+***安装php***
+现在owncloud只支持php7.1
+- sudo apt-get install software-properties-common
+- sudo add-apt-repository ppa:ondrej/php
+- sudo apt update
+- sudo apt install php7.1
+接着安装php模块
+- sudo apt-get install php7.1-cli php7.1-common php7.1-mbstring php7.1-gd php7.1-intl php7.1-xml php7.1-mysql php7.1-zip php7.1-curl php7.1-xmlrpc
+安装完成后配置一下
+- sudo nvim /etc/php/7.1/apache2/php.ini
+```
+file_uploads = On
+allow_url_fopen = On
+memory_limit = 256M
+upload_max_file_size = 100M
+
+```
+重启apache
+- sudo systemctl restart apache2
+
