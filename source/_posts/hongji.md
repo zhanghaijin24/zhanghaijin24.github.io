@@ -237,7 +237,7 @@ upload_max_file_size = 100M
 - sudo chown -R www-data:www-data /var/www/chevereto
 - sudo chmod -R 777 /var/www/chevereto 
 ***apache2/chevereto***
-sudo nvim /etc/apache2/sites-available/owncloud.conf
+sudo nvim /etc/apache2/conf-available/owncloud.conf
 ```
 Alias /chevereto "/var/www/chevereto"
   
@@ -255,3 +255,24 @@ SetEnv HTTP_HOME /var/www/chevereto
 </Directory>
 
 ```
+***运行一下命令***
+
+***禁用apache目录列表***
+- sudo a2dismod autoindex
+***开启额外模块***
+- sudo a2enmod rewrite
+- sudo a2enmod headers
+- sudo a2enmod env
+- sudo a2enmod dir
+- sudo a2enmod mime
+***重启apache***
+- sudo systemctl restart apache2
+
+一旦MariaDB得到保护，您将需要为Chevereto创建一个数据库和用户
+- sudo mysql -u root -p
+输入密码123456
+- MariaDB [(none)]>CREATE DATABASE cheveretodb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+- MariaDB [(none)]>GRANT ALL PRIVILEGES ON cheveretodb.* TO ‘chevereto’@’localhost’ IDENTIFIED BY ‘password’;
+- MariaDB [(none)]>FLUSH PRIVILEGES;
+- MariaDB [(none)]>\q
+
