@@ -34,6 +34,18 @@ title: hongji 4750G
 ***2,按F12進入usb***
 - ![A38BD449-414F-43C8-9276-D3F47021AF7E.jpg](http://101.201.197.193/images/2021/01/20/A38BD449-414F-43C8-9276-D3F47021AF7E.jpg)
 
+# 华硕ASUS U盘引导安装ubuntu18.04
+---
+首先开机按F2，进入系统BIOS，再按F8，选择U盘启动
+***ubuntu 18.04分区***
+**分区最先对/进行分区，主分区**
+- 首先 挂载点：/：ext4日志文件系统，主分区，10G
+- 其次 swap： 逻辑分区，电脑内存大学大小
+- 最后 ：/home ：ext4日志文件系统，逻辑分区，剩余空间都是。
+![E74BFD09-3BA7-448D-BF80-AB9EA231B9B8.jpg](http://101.201.197.193/images/2021/01/27/E74BFD09-3BA7-448D-BF80-AB9EA231B9B8.jpg)
+
+![ACBBF6CA-FB97-4C6E-8EDE-32C17BD38709.jpg](http://101.201.197.193/images/2021/01/27/ACBBF6CA-FB97-4C6E-8EDE-32C17BD38709.jpg)
+![F3BFD02F-A1B5-44D3-B7D2-E0B733DBF729.jpg](http://101.201.197.193/images/2021/01/27/F3BFD02F-A1B5-44D3-B7D2-E0B733DBF729.jpg)
 
 ***ubuntu18.04 換源***
 - sudo vim /etc/apt/sources.list
